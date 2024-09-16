@@ -1,0 +1,57 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint8",
+						"name": "_id",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/testCon.sol": "Hello"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/testCon.sol": {
+			"keccak256": "0xa50f3223d592121365760345f0cc4473e1700952121321743454d1db7733bb6f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3060c0e95d8e1169663ef459fcd2abf1645ad53ac43b52f8a70987b037a41a3e",
+				"dweb:/ipfs/QmNww5vBtqQfGeUraceyh3ob3A1wnBQ6J6aQcH1QWomaSd"
+			]
+		}
+	},
+	"version": 1
+}
