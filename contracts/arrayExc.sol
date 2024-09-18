@@ -8,8 +8,8 @@ contract ArraysExercise {
     address[] senders;
     uint[] timestamps;
     function getNumbers() external view returns(uint[] memory memArr){
-        memArr=numbers;
-        return memArr;
+        //memArr=numbers;
+        return numbers;
     }
     function resetNumbers() external{
         uint[] memory _num= new uint[](strNumLength);
