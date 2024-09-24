@@ -18,7 +18,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/inherit.sol": "Hello"
+			"contracts/inherit.sol": "HelloII"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -33,11 +33,11 @@
 	},
 	"sources": {
 		"contracts/inherit.sol": {
-			"keccak256": "0x0ab2623ac320a2ec269b7e59bac5eb1c018214514c8d574b8a279a900668a3d3",
+			"keccak256": "0xa701a4fca14767e284c93ac9b48cbece39680ab7c73ead45c7a98cdd943e706b",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1df19b55e3d3457cc07a694974e9f1c21a9bb4937d0392c93e41dab88bb415cf",
-				"dweb:/ipfs/QmV26gzZT58ekHtBdh4ucf2gDMfNmj4LnTEuJDYrUSVNf8"
+				"bzz-raw://d8962a790ff99855d2112e29c4f5e7d3415a25bc5df0cf7a777a8ce27f91d1ca",
+				"dweb:/ipfs/QmUEP9uQDsyCradLtSFv3zDwHMQRi6FmoS4MQvp2Up2GSs"
 			]
 		}
 	},

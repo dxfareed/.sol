@@ -1,0 +1,74 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"name": "AddressAdded",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "SetAmount",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/GiveAway.sol": "GiveAway"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/GiveAway.sol": {
+			"keccak256": "0x106db2a5a812a69726dd97bf331474d9fb72af0adc657c4a4f63d83aa4f5649b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://063173eb7f7eb7c82141b5e2c2c289971b48342a0604ef64ec0e0d608a3758a0",
+				"dweb:/ipfs/QmfCnQXKqcHX11fP644H8N5nL6jJKDVvgmwuWEkSSrAKXu"
+			]
+		}
+	},
+	"version": 1
+}

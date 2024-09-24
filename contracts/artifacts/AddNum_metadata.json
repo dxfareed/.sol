@@ -9,46 +9,21 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "time",
+						"name": "a",
 						"type": "uint256"
-					}
-				],
-				"name": "AfterHours",
-				"type": "error"
-			},
-			{
-				"inputs": [
+					},
 					{
 						"internalType": "uint256",
-						"name": "_time",
+						"name": "b",
 						"type": "uint256"
 					}
 				],
-				"name": "doNotDisturb",
+				"name": "addNum",
 				"outputs": [
-					{
-						"internalType": "string",
-						"name": "message",
-						"type": "string"
-					}
-				],
-				"stateMutability": "pure",
-				"type": "function"
-			},
-			{
-				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "_number",
-						"type": "uint256"
-					}
-				],
-				"name": "fizzBuzz",
-				"outputs": [
-					{
-						"internalType": "string",
 						"name": "",
-						"type": "string"
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "pure",
@@ -68,7 +43,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/FizzBuzz.sol": "FizzBuzz"
+			"contracts/addNum.sol": "AddNum"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -82,12 +57,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/FizzBuzz.sol": {
-			"keccak256": "0x423190beef718a94c7aaaeb6f413cc89d3d0842cecc16dfa00481cc88e909c70",
+		"contracts/addNum.sol": {
+			"keccak256": "0xa78f509d86195b45df35f4028ac7495b00dbc3177b396d99e90f724b18fb5d53",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://83f5eacc3ee6e41ea30de82986eb48b8e03087d419c3951b7a6fb38461e4f2e2",
-				"dweb:/ipfs/QmZvG9CbHQUbfYTKPD4uvgLc75eLXi4HFupUnC3AKumPc1"
+				"bzz-raw://bfad4b846f007ce74f87cb0235704b3b8700f174aa59fa8faf91564b141dd43c",
+				"dweb:/ipfs/QmTkQq45r2qJMsrPcaeXER6GPB5iULpoenaCa1fPTQ7Es6"
 			]
 		}
 	},

@@ -1,0 +1,71 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "Rtrn",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "age",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "person",
+								"type": "string"
+							}
+						],
+						"internalType": "struct lkTup.LkTp",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/samStructs.sol": "lkTup"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/samStructs.sol": {
+			"keccak256": "0xaabad73684f32039b459cb62438eabee384156b29928460b2a8cde7213681c9b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://355359b7df57144edafde4254d6ba703f79702d3e4a67555d57aa3fed0777253",
+				"dweb:/ipfs/QmRoUL4JkB8qt22d61H7KcHL9kWH9rkTGydSR7ZFs7AQWL"
+			]
+		}
+	},
+	"version": 1
+}

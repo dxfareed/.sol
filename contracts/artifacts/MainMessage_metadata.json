@@ -6,29 +6,12 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "time",
-						"type": "uint256"
-					}
-				],
-				"name": "AfterHours",
-				"type": "error"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "_time",
-						"type": "uint256"
-					}
-				],
-				"name": "doNotDisturb",
+				"inputs": [],
+				"name": "messageA",
 				"outputs": [
 					{
 						"internalType": "string",
-						"name": "message",
+						"name": "",
 						"type": "string"
 					}
 				],
@@ -36,14 +19,21 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
+				"inputs": [],
+				"name": "messageB",
+				"outputs": [
 					{
-						"internalType": "uint256",
-						"name": "_number",
-						"type": "uint256"
+						"internalType": "string",
+						"name": "",
+						"type": "string"
 					}
 				],
-				"name": "fizzBuzz",
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "showMessage",
 				"outputs": [
 					{
 						"internalType": "string",
@@ -68,7 +58,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/FizzBuzz.sol": "FizzBuzz"
+			"contracts/inherit1.sol": "MainMessage"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -82,12 +72,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/FizzBuzz.sol": {
-			"keccak256": "0x423190beef718a94c7aaaeb6f413cc89d3d0842cecc16dfa00481cc88e909c70",
+		"contracts/inherit1.sol": {
+			"keccak256": "0x0da45f3b7174e2d1cf0ca432c0c3e6ee626077f65603fac1bcec39b249e7f82a",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://83f5eacc3ee6e41ea30de82986eb48b8e03087d419c3951b7a6fb38461e4f2e2",
-				"dweb:/ipfs/QmZvG9CbHQUbfYTKPD4uvgLc75eLXi4HFupUnC3AKumPc1"
+				"bzz-raw://a60c7be11f5a11a1ba96881b3d79bce1eea8d39bcb3b28bd8ccdd1015b90d879",
+				"dweb:/ipfs/QmU9exKWjXtuvTLbLwzToLCr1Yf6CurL34XcPPo8Tj2nj8"
 			]
 		}
 	},

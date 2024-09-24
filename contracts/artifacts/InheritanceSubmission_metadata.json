@@ -1,0 +1,88 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_salesPerson",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_engineeringManager",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "engineeringManager",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "salesPerson",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/inheritsz.sol": "InheritanceSubmission"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/inheritsz.sol": {
+			"keccak256": "0xb9d8a020971d4cbabddcea1fbec6b73fb52965ec70593150b2cdf9e6179a7905",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c3f57add1974175712b0a4ccea1a91ffc19850e2d71e837dac48f1f97701344a",
+				"dweb:/ipfs/QmeYs15Zryqc9tt7fVzG5GNfKvjzgpJCN1whxegAiJzGsr"
+			]
+		}
+	},
+	"version": 1
+}

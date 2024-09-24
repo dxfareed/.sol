@@ -9,58 +9,73 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "_a",
+						"name": "_hourlyrate",
 						"type": "uint256"
 					},
 					{
 						"internalType": "uint256",
-						"name": "_b",
+						"name": "_idnum",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_managerId",
 						"type": "uint256"
 					}
 				],
-				"name": "adder",
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "getAnnualCost",
 				"outputs": [
 					{
 						"internalType": "uint256",
-						"name": "sum",
+						"name": "_total",
 						"type": "uint256"
-					},
-					{
-						"internalType": "bool",
-						"name": "error",
-						"type": "bool"
 					}
 				],
-				"stateMutability": "pure",
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "_a",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "_b",
-						"type": "uint256"
-					}
-				],
-				"name": "subtractor",
+				"inputs": [],
+				"name": "hourlyRate",
 				"outputs": [
 					{
 						"internalType": "uint256",
-						"name": "differ",
+						"name": "",
 						"type": "uint256"
-					},
-					{
-						"internalType": "bool",
-						"name": "error",
-						"type": "bool"
 					}
 				],
-				"stateMutability": "pure",
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "idNumber",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "managerId",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			}
 		],
@@ -77,7 +92,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/BasicMath.sol": "BasicMath"
+			"contracts/inheritsz.sol": "Hourly"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -91,12 +106,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/BasicMath.sol": {
-			"keccak256": "0x2df71bbeb177d990e3d9228427ad0a941b91e2c58525be7104c43c1bafb58442",
+		"contracts/inheritsz.sol": {
+			"keccak256": "0xb9d8a020971d4cbabddcea1fbec6b73fb52965ec70593150b2cdf9e6179a7905",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://9e8e8fc6810af494a5ba635057edc1149d9acdee47dc7a0b7ccea2ec5cd1acc6",
-				"dweb:/ipfs/QmWoN3JaPAnqc8PQAu8Jji9nzisp1cYL2oXvcnhoUhkMjc"
+				"bzz-raw://c3f57add1974175712b0a4ccea1a91ffc19850e2d71e837dac48f1f97701344a",
+				"dweb:/ipfs/QmeYs15Zryqc9tt7fVzG5GNfKvjzgpJCN1whxegAiJzGsr"
 			]
 		}
 	},
