@@ -1,0 +1,61 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "_add",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/import/import.sol": "Zip"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/import/import.sol": {
+			"keccak256": "0x4d07ed9b518f603d9b76ccbd98d23b768664a351b83923e79797b4f5110581a1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://698b2d66019ff87aab4253c138d63735d6791ca2ee067fff66455543dc428388",
+				"dweb:/ipfs/QmNxf24hqnpyELcyaMzNW2fCF3dmV3eVYWnmdEXDPiFyVK"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/utils/structs/EnumerableSet.sol": {
+			"keccak256": "0xacb73a928c608ee37ffe0d13d708f82c362fc8278de04c4f7c934bc7242094ad",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c07aa76c2bef22adb568fff629cf79893ca65e0b1664c4e421ebde06e9bfd21e",
+				"dweb:/ipfs/QmSFVYCHB9hfZ1tfVobJhCKwG5Gb48s1QgnDfPK8ZbeVbR"
+			]
+		}
+	},
+	"version": 1
+}

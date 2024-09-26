@@ -1,6 +1,6 @@
 //SPDX-License-Identifier:MIT
 
-pragma solidity >=0.8.0;
+pragma solidity ^0.8.17;
 contract BasicMath{
     function adder(uint _a, uint _b) public pure returns (uint sum, bool error){
         uint smm;

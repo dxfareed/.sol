@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.26+commit.8a97fa7a"
+		"version": "0.8.17+commit.8df45f5f"
 	},
 	"language": "Solidity",
 	"output": {
@@ -79,7 +79,7 @@
 		"compilationTarget": {
 			"contracts/BasicMath.sol": "BasicMath"
 		},
-		"evmVersion": "cancun",
+		"evmVersion": "london",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -92,11 +92,11 @@
 	},
 	"sources": {
 		"contracts/BasicMath.sol": {
-			"keccak256": "0x2df71bbeb177d990e3d9228427ad0a941b91e2c58525be7104c43c1bafb58442",
+			"keccak256": "0x3f298514766c48c77002844f04c10a26df3b41cf5f143e7f8877b25435169e1d",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://9e8e8fc6810af494a5ba635057edc1149d9acdee47dc7a0b7ccea2ec5cd1acc6",
-				"dweb:/ipfs/QmWoN3JaPAnqc8PQAu8Jji9nzisp1cYL2oXvcnhoUhkMjc"
+				"bzz-raw://d88cd50c75e85242c4db9e6117da95231fbe5de719e83f78796351d8f8c44078",
+				"dweb:/ipfs/QmeDJ13noYsYMhpuPupD2CqKizUZoMhSzBpfSqpfBEfaPS"
 			]
 		}
 	},

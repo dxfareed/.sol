@@ -1,0 +1,65 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					}
+				],
+				"name": "CreateComplimenter",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/new.sol": "ComplimenterFactory"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/new.sol": {
+			"keccak256": "0x9c6099299a8f17ab322fb73c941b94df6f2935567d30580038b8b5c3862ae5f2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://56ce9977898beebfd3622b66c296e7b034462abc7755b7d95301c242139c9e1f",
+				"dweb:/ipfs/QmYRYwp5N8BEwStu5xWY5JSt3AtM4fELC2AsfTS4h8cVc3"
+			]
+		}
+	},
+	"version": 1
+}
