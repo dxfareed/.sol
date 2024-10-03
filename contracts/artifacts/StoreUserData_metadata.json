@@ -21,6 +21,11 @@
 						"internalType": "uint256",
 						"name": "_age",
 						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "_uid",
+						"type": "string"
 					}
 				],
 				"name": "addUser",
@@ -31,27 +36,22 @@
 			{
 				"inputs": [
 					{
-						"internalType": "address",
-						"name": "_addrr",
-						"type": "address"
+						"internalType": "string",
+						"name": "_uid",
+						"type": "string"
 					}
 				],
-				"name": "getUser",
+				"name": "showWitUId",
 				"outputs": [
 					{
 						"internalType": "string",
-						"name": "",
+						"name": "iiS",
 						"type": "string"
 					},
 					{
-						"internalType": "string",
+						"internalType": "address",
 						"name": "",
-						"type": "string"
-					},
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -86,11 +86,11 @@
 	},
 	"sources": {
 		"contracts/storeUserData.sol": {
-			"keccak256": "0xb557e5f075deb5b1aba30319db2b64a1d6724560326a0365f96b7b80ad7f3033",
+			"keccak256": "0xeb7fafbc4411980afdd34c48026deb065dd2d997c7c530d39d6de7bb3a144417",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://31471c1e409bb62d43f253b48454d7e5babc4ea5a22cae84e9eedd58c2c9f750",
-				"dweb:/ipfs/QmWyvMV7kgoBNQtuzmm3Febi284f21TEUwsDrat32CSnMg"
+				"bzz-raw://63c2bb0bdd3940f53456ff18d6c9c7bad03f6096577d5ed762843ff4f4a819f4",
+				"dweb:/ipfs/QmRN1yfdtqwQX7hp5murmG9GMG8d61RwGCsEHqY9AAUwWW"
 			]
 		}
 	},
