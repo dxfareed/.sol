@@ -18,7 +18,7 @@ contract StoreUserData{
         uids.push(_uid);
         addressOfEchUser.push(msg.sender);
     }
-    function showWitUId(string memory _uid) external view returns(string memory iiS, address){
+    function showWitUId(string memory _uid) external view returns(string memory iiS, address zz){
         for(uint i; i<uids.length; i++){
             if( keccak256(abi.encodePacked(uids[i])) == keccak256(abi.encodePacked(_uid))){
                 //return "hello there we made it !";

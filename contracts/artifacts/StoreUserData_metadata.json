@@ -50,7 +50,7 @@
 					},
 					{
 						"internalType": "address",
-						"name": "",
+						"name": "zz",
 						"type": "address"
 					}
 				],
@@ -86,11 +86,11 @@
 	},
 	"sources": {
 		"contracts/storeUserData.sol": {
-			"keccak256": "0xeb7fafbc4411980afdd34c48026deb065dd2d997c7c530d39d6de7bb3a144417",
+			"keccak256": "0xf5786ffcfcf2efd39e6d1caa0016831aff927e9de9beab40a4d279b88a366216",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://63c2bb0bdd3940f53456ff18d6c9c7bad03f6096577d5ed762843ff4f4a819f4",
-				"dweb:/ipfs/QmRN1yfdtqwQX7hp5murmG9GMG8d61RwGCsEHqY9AAUwWW"
+				"bzz-raw://d0623987dbf875457fa422cad57b04dbe622cc5fed043a2a9788704866c2d570",
+				"dweb:/ipfs/QmcaC4BZJgpPfqXDqKtxQLvCV4hZFJGMtaJVPgpy7JKFvq"
 			]
 		}
 	},
