@@ -11,6 +11,11 @@
 						"components": [
 							{
 								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
 								"name": "topic",
 								"type": "string"
 							},
@@ -18,16 +23,34 @@
 								"internalType": "string",
 								"name": "link",
 								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "uid",
+								"type": "string"
 							}
 						],
 						"internalType": "struct storeUserData.eachList[]",
-						"name": "",
+						"name": "_userlist",
 						"type": "tuple[]"
 					}
 				],
 				"name": "addList",
 				"outputs": [],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "checkUser",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "_message",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			}
 		],
@@ -59,10 +82,10 @@
 	},
 	"sources": {
 		"contracts/deLink/storeUserData.sol": {
-			"keccak256": "0xf8814e069eee1c17149e37f60a83518d4d96ae4137ed25303a84b1062faba0d7",
+			"keccak256": "0x56a651bc92aecfc2524aaf83de2c115ba14d4f09da4d8bc5c5355c4f2a432210",
 			"urls": [
-				"bzz-raw://e5b3b1f502a2e13bcd149cde45f78cc507bac4bd2a4ac7b0c5b299438ea70fa6",
-				"dweb:/ipfs/QmYmJ1py2pefhYS6LkKersDeS2WaZFCugmq7CuCF8aLvCL"
+				"bzz-raw://5c15802ea7449f16003df2548c188b0d8699dd8b76e44cc827d235d26ec70927",
+				"dweb:/ipfs/QmVKFetV4bSfHv4dPxn5aZZG3oAALhAyqaQkVQrjQyCZad"
 			]
 		}
 	},
