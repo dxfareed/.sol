@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.27+commit.40a35a09"
+		"version": "0.8.26+commit.8a97fa7a"
 	},
 	"language": "Solidity",
 	"output": {
@@ -45,12 +45,12 @@
 				"outputs": [
 					{
 						"internalType": "string",
-						"name": "iiS",
+						"name": "userName",
 						"type": "string"
 					},
 					{
 						"internalType": "address",
-						"name": "zz",
+						"name": "userAddress",
 						"type": "address"
 					}
 				],
@@ -86,11 +86,11 @@
 	},
 	"sources": {
 		"contracts/storeUserData.sol": {
-			"keccak256": "0xf5786ffcfcf2efd39e6d1caa0016831aff927e9de9beab40a4d279b88a366216",
+			"keccak256": "0xcda37b65a568fbab43b8444597b340043a40ccc971895954c99a2fd035aee2ac",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://d0623987dbf875457fa422cad57b04dbe622cc5fed043a2a9788704866c2d570",
-				"dweb:/ipfs/QmcaC4BZJgpPfqXDqKtxQLvCV4hZFJGMtaJVPgpy7JKFvq"
+				"bzz-raw://3c7d242fec0cf41e2154b9533b02c6eb4098ff4751031a0e66c5bfad33ed21db",
+				"dweb:/ipfs/QmdFZD8kM2c2d9shZ2WsebBDtKs65UgNSxbQNpkRsHGz1X"
 			]
 		}
 	},

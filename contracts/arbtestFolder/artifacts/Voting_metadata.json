@@ -1,0 +1,83 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "user",
+						"type": "string"
+					}
+				],
+				"name": "UserVotedStop",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_a",
+						"type": "string"
+					}
+				],
+				"name": "addVoteA",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_b",
+						"type": "string"
+					}
+				],
+				"name": "addVoteB",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/arbtestFolder/voteDapp.sol": "Voting"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/arbtestFolder/voteDapp.sol": {
+			"keccak256": "0x8223610c010c72c50bd80feeb85cbf205fcd3e5d2730ef7a4ea34f2c325b3aa8",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0b5c223542c64532b657db981999d7a0fe08a088684d5a76b347463dd3f1fb48",
+				"dweb:/ipfs/QmNoNiU8DyDgAQQZTHdXY8rTmErdsmPrrzLZdoVwU432zR"
+			]
+		}
+	},
+	"version": 1
+}

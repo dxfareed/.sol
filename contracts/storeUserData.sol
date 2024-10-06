@@ -18,11 +18,11 @@ contract StoreUserData{
         uids.push(_uid);
         addressOfEchUser.push(msg.sender);
     }
-    function showWitUId(string memory _uid) external view returns(string memory iiS, address zz){
+    function showWitUId(string memory _uid) external view returns(string memory userName, address userAddress){
         for(uint i; i<uids.length; i++){
             if( keccak256(abi.encodePacked(uids[i])) == keccak256(abi.encodePacked(_uid))){
                 //return "hello there we made it !";
-                return( People[addressOfEchUser[i]].name, addressOfEchUser[i]);
+               return( People[addressOfEchUser[i]].name, addressOfEchUser[i]);
             }
         }
          return ("not found", msg.sender);
