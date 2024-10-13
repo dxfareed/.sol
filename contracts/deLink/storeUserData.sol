@@ -2,6 +2,7 @@
 pragma solidity ^0.8.17;
 
 contract storeUserData{
+    error UserNotFound(string);
     struct eachList{
         string name;
         string topic;
@@ -13,11 +14,15 @@ contract storeUserData{
         for(uint i; i<_userlist.length; i++){
             StoreList[msg.sender].push(_userlist[i]);
         }
-        //StoreList[msg.sender].push(_userlist);
     }
-    function checkUser() external view returns(string memory  _message){
-        if(StoreList[msg.sender].length!=0){
-            return StoreList[msg.sender][0].uid;
+    function checkUser(address _user) external view returns(eachList[] memory){
+        if(StoreList[_user].length!=0){
+            return StoreList[_user];
         }
+        return StoreList[_user];
+        //revert UserNotFound("User not found");
+    }
+    function deleteData(address _user) external{
+        delete  StoreList[_user];
     }
 }

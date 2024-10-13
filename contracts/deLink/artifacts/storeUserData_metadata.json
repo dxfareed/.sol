@@ -8,6 +8,17 @@
 			{
 				"inputs": [
 					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"name": "UserNotFound",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
 						"components": [
 							{
 								"internalType": "string",
@@ -41,16 +52,57 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					}
+				],
 				"name": "checkUser",
 				"outputs": [
 					{
-						"internalType": "string",
-						"name": "_message",
-						"type": "string"
+						"components": [
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "topic",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "link",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "uid",
+								"type": "string"
+							}
+						],
+						"internalType": "struct storeUserData.eachList[]",
+						"name": "",
+						"type": "tuple[]"
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					}
+				],
+				"name": "deleteData",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
@@ -82,10 +134,10 @@
 	},
 	"sources": {
 		"contracts/deLink/storeUserData.sol": {
-			"keccak256": "0x56a651bc92aecfc2524aaf83de2c115ba14d4f09da4d8bc5c5355c4f2a432210",
+			"keccak256": "0x6162ae99a4c7affb606518d1f86347d362a56f9e6a328d2b1fc6168c67e3a133",
 			"urls": [
-				"bzz-raw://5c15802ea7449f16003df2548c188b0d8699dd8b76e44cc827d235d26ec70927",
-				"dweb:/ipfs/QmVKFetV4bSfHv4dPxn5aZZG3oAALhAyqaQkVQrjQyCZad"
+				"bzz-raw://be1ff5f74db992ff3681b798f5b45600c778aca7bef59d434e9f1980bbdaba42",
+				"dweb:/ipfs/QmQQKwmuvqHYsqgQWxgQwPA1hvy1naakXuUn9cwmWr99Y9"
 			]
 		}
 	},
