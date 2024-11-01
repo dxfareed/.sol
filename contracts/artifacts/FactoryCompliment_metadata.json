@@ -6,6 +6,19 @@
 	"output": {
 		"abi": [
 			{
+				"inputs": [],
+				"name": "DisplayMessage",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "string",
@@ -13,15 +26,28 @@
 						"type": "string"
 					}
 				],
-				"name": "createComplim",
+				"name": "createCompilment",
 				"outputs": [
 					{
-						"internalType": "address",
+						"internalType": "string",
 						"name": "",
-						"type": "address"
+						"type": "string"
 					}
 				],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "message",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			}
 		],
@@ -38,7 +64,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/new.sol": "FactoryCompliment"
+			"contracts/complimet.sol": "FactoryCompliment"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -52,12 +78,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/new.sol": {
-			"keccak256": "0xf790709c3b1202b3293a9c22687f295c9f6b5aadbcfd1404dc691bcd3566e6b5",
+		"contracts/complimet.sol": {
+			"keccak256": "0xdecc4823d6d942e8361dcc1b8899b42aa946766f3e202ca2ec7e3919b1b2bdb7",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://ebe14f861c9f40b5aec188386b834b0bf7865b4daba535d114d4fa4fa4465be8",
-				"dweb:/ipfs/QmQXPSgwoxaTFQH42Ya2tK7Rqq9TfJQQSFn1ZBvioEM7sD"
+				"bzz-raw://ad4d39e14c9890cf7e3abfc81ea6cb67e45e44198eefbbdd3e2521d1aa93d564",
+				"dweb:/ipfs/QmQgD4NKDxVqpGt5FZSQXgAiiDCscHt1imE7o3916TEcee"
 			]
 		}
 	},
