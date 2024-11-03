@@ -24,6 +24,17 @@
 			{
 				"inputs": [
 					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"name": "AddressNotFound",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "address",
 						"name": "spender",
 						"type": "address"
@@ -108,6 +119,28 @@
 				"type": "error"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"name": "NoToken",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"name": "TokenClaimed",
+				"type": "error"
+			},
+			{
 				"anonymous": false,
 				"inputs": [
 					{
@@ -156,6 +189,64 @@
 				],
 				"name": "Transfer",
 				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					}
+				],
+				"name": "Balance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_value",
+						"type": "uint256"
+					}
+				],
+				"name": "Burn",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_addrs",
+						"type": "address"
+					}
+				],
+				"name": "Claim",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "SenderEth",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
 			},
 			{
 				"inputs": [
@@ -238,6 +329,42 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_addrs",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "flipClick",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_addrs",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_tokenStaked",
+						"type": "uint256"
+					}
+				],
+				"name": "gain",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "name",
 				"outputs": [
@@ -251,6 +378,13 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "payContractGasFee",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "uint256",
@@ -261,6 +395,25 @@
 				"name": "pumptit",
 				"outputs": [],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_addrs",
+						"type": "address"
+					}
+				],
+				"name": "realTime",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -446,7 +599,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/firstToken.sol": "firstToken"
+			"contracts/flipit.sol": "flipit"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -460,12 +613,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/firstToken.sol": {
-			"keccak256": "0x2a578f674e23a66dd80b19b5e56810f141d7eb66b12bbda3bc57b796260b7290",
+		"contracts/flipit.sol": {
+			"keccak256": "0x1970635064e8851d14427d687311c83409c497e81a354797cdb993574cf84f45",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://b3e813f65db7f613ed62aa1f99bfc9a7f526316c9997a5346fcdee98729e4d13",
-				"dweb:/ipfs/QmVrQncAj3LwgvLKXEmSE2vF9uyheqtVH7V1DKK46so2MK"
+				"bzz-raw://0396988f361215086304a97b162c16c9d3efddac6088e8f95259ad3ae709efeb",
+				"dweb:/ipfs/QmUSyqdXu8k7n3QkeoEYsjRtzksTNrUi4yFCCDHeHr9LuF"
 			]
 		},
 		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/interfaces/draft-IERC6093.sol": {

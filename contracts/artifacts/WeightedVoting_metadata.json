@@ -6,20 +6,19 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [
-					{
-						"internalType": "string",
-						"name": "_name",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "_symbol",
-						"type": "string"
-					}
-				],
+				"inputs": [],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "AllTokensClaimed",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "AlreadyVoted",
+				"type": "error"
 			},
 			{
 				"inputs": [
@@ -105,6 +104,32 @@
 					}
 				],
 				"name": "ERC20InvalidSpender",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NoTokensHeld",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "quorum",
+						"type": "uint256"
+					}
+				],
+				"name": "QuorumTooHigh",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "TokensClaimed",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "VotingClosed",
 				"type": "error"
 			},
 			{
@@ -226,12 +251,117 @@
 			},
 			{
 				"inputs": [],
+				"name": "claim",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_issueDesc",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_quorum",
+						"type": "uint256"
+					}
+				],
+				"name": "createIssue",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "decimals",
 				"outputs": [
 					{
 						"internalType": "uint8",
 						"name": "",
 						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					}
+				],
+				"name": "getIssue",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "issueDesc",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "votesFor",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "votesAgainst",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "votesAbstain",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "totalVotes",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "quorum",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "passed",
+								"type": "bool"
+							},
+							{
+								"internalType": "bool",
+								"name": "closed",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct WeightedVoting.IssueView",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "maxSupply",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -248,19 +378,6 @@
 					}
 				],
 				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "_pumpMint",
-						"type": "uint256"
-					}
-				],
-				"name": "pumptit",
-				"outputs": [],
-				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -339,6 +456,24 @@
 						"type": "bool"
 					}
 				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_issueId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "enum WeightedVoting.Vote",
+						"name": "_vote",
+						"type": "uint8"
+					}
+				],
+				"name": "vote",
+				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			}
@@ -446,7 +581,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/firstToken.sol": "firstToken"
+			"contracts/erc20base.sol": "WeightedVoting"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -460,12 +595,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/firstToken.sol": {
-			"keccak256": "0x2a578f674e23a66dd80b19b5e56810f141d7eb66b12bbda3bc57b796260b7290",
+		"contracts/erc20base.sol": {
+			"keccak256": "0x82b120a088eec71d8d517491ba46157ec728debbb14f14c99b35a547d004aa14",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://b3e813f65db7f613ed62aa1f99bfc9a7f526316c9997a5346fcdee98729e4d13",
-				"dweb:/ipfs/QmVrQncAj3LwgvLKXEmSE2vF9uyheqtVH7V1DKK46so2MK"
+				"bzz-raw://f1f284b91abae0aaba48dfaf6da415751ae46ca105fb0586902fa7f8117f29ca",
+				"dweb:/ipfs/QmYH4wYSXJFDCeiAA4mTcaPSYSqjYvWtnRadRF1bpMD85d"
 			]
 		},
 		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/interfaces/draft-IERC6093.sol": {
@@ -506,6 +641,14 @@
 			"urls": [
 				"bzz-raw://6a708e8a5bdb1011c2c381c9a5cfd8a9a956d7d0a9dc1bd8bcdaf52f76ef2f12",
 				"dweb:/ipfs/Qmax9WHBnVsZP46ZxEMNRQpLQnrdE4dK8LehML1Py8FowF"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/utils/structs/EnumerableSet.sol": {
+			"keccak256": "0x9b161e97b8967d4bc0c08d25741889a30692cdda4b71910bf1b0e315f1962212",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://821500c39d095eaa25b06f46e65f1d0e97c4c96b39227f79077dee7d9e84051f",
+				"dweb:/ipfs/QmSTeGorKzSWF6HAmxo32uCZiEuKNvreQdUiX1AaYtUMTz"
 			]
 		}
 	},

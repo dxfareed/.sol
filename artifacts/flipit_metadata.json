@@ -24,6 +24,17 @@
 			{
 				"inputs": [
 					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"name": "AddressNotFound",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "address",
 						"name": "spender",
 						"type": "address"
@@ -108,6 +119,28 @@
 				"type": "error"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"name": "NoToken",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"name": "TokenClaimed",
+				"type": "error"
+			},
+			{
 				"anonymous": false,
 				"inputs": [
 					{
@@ -156,6 +189,51 @@
 				],
 				"name": "Transfer",
 				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					}
+				],
+				"name": "Balance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_value",
+						"type": "uint256"
+					}
+				],
+				"name": "Burn",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_addrs",
+						"type": "address"
+					}
+				],
+				"name": "Claim",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			},
 			{
 				"inputs": [
@@ -235,6 +313,37 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_addrs",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "flipClick",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_addrs",
+						"type": "address"
+					}
+				],
+				"name": "gain",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -446,7 +555,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/firstToken.sol": "firstToken"
+			"flipit.sol": "flipit"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -460,12 +569,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/firstToken.sol": {
-			"keccak256": "0x2a578f674e23a66dd80b19b5e56810f141d7eb66b12bbda3bc57b796260b7290",
+		"flipit.sol": {
+			"keccak256": "0x9b9e9d6d4dd8380eff3d5a7d12ae4e94af5ded7c79bacf883e551f9c64e96fd0",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://b3e813f65db7f613ed62aa1f99bfc9a7f526316c9997a5346fcdee98729e4d13",
-				"dweb:/ipfs/QmVrQncAj3LwgvLKXEmSE2vF9uyheqtVH7V1DKK46so2MK"
+				"bzz-raw://1403e9406df12511bd61e40250b25b6aa16c616454d3782aa4525fc3b8adb089",
+				"dweb:/ipfs/QmbxvzLV1ShuB89sEJ5uBM9p5dCLRPi1MR8v2nBSwg8Scv"
 			]
 		},
 		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/interfaces/draft-IERC6093.sol": {
