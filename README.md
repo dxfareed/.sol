@@ -1,6 +1,8 @@
 -- include just my solution to questions from base learn --
 
-use my solution as guide to solve the base learn tricky question :)
+use my solution as guide to solve the base learn tricky questions
+
+happy koding :)
 
 ## Basic Functions Exercise
 
