@@ -12,7 +12,7 @@ contract flipit is ERC20 {
     error TokenClaimed(string);
     error AddressNotFound(string);
     address[] private _senderEth;
-
+    uint public startDay;
     constructor(string memory _name, string memory _symbol)
         ERC20(_name, _symbol)
     {
@@ -20,8 +20,8 @@ contract flipit is ERC20 {
         _mint(address(this), 1_000_0000_000 * dec);
         _owner_ = msg.sender;
         contractAddress = address(this);
+        startDay = block.timestamp;
     }
-
     function pumptit(uint256 _pumpMint) public {
         require(_owner_ == msg.sender, "Not owner!");
         _mint(msg.sender, _pumpMint * dec);
@@ -72,6 +72,13 @@ contract flipit is ERC20 {
     function SenderEth() public view returns(address[] memory){
         require(_owner_ == msg.sender, "Not owner!");
         return _senderEth;
+    }
+    function withDraw() public {
+        require(_owner_ == msg.sender, "Not owner!");
+        payable (_owner_).transfer(address(this).balance);
+    }
+    function addressBalnc(address _user) public view  returns (uint256){
+        return _user.balance;   
     }
 }
 /* 

@@ -252,6 +252,25 @@
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					}
+				],
+				"name": "addressBalnc",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
 						"name": "owner",
 						"type": "address"
 					},
@@ -418,6 +437,19 @@
 			},
 			{
 				"inputs": [],
+				"name": "startDay",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "symbol",
 				"outputs": [
 					{
@@ -492,6 +524,13 @@
 						"type": "bool"
 					}
 				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "withDraw",
+				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			}
@@ -614,11 +653,11 @@
 	},
 	"sources": {
 		"contracts/flipit.sol": {
-			"keccak256": "0x1970635064e8851d14427d687311c83409c497e81a354797cdb993574cf84f45",
+			"keccak256": "0xff0a5fec3433750ff316f5ce26bb01f678df1aeef214bb42316ba4fbebb6dffa",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://0396988f361215086304a97b162c16c9d3efddac6088e8f95259ad3ae709efeb",
-				"dweb:/ipfs/QmUSyqdXu8k7n3QkeoEYsjRtzksTNrUi4yFCCDHeHr9LuF"
+				"bzz-raw://a56e4897a2215cf6478968f3c80f8c69d40e8fae75c4b8357608c0817618ced8",
+				"dweb:/ipfs/QmUhXPLVfdhwtyueViiaTxie4xL1KssS64WmhgWu4RTWnp"
 			]
 		},
 		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/interfaces/draft-IERC6093.sol": {
