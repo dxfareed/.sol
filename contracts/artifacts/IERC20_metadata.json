@@ -139,7 +139,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/test.sol": "IERC20"
+			"contracts/trvx.sol": "IERC20"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -153,12 +153,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/test.sol": {
-			"keccak256": "0xcc044cae64aef90c2c3f09f068c351137fdfb2beae610cc4081831236e8bcd38",
+		"contracts/trvx.sol": {
+			"keccak256": "0x2fd89fabf9cfc5e592d87e2d4e70482f3788d59677c41d2a6fdf200b4b0e4898",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://8c8babc7c9d1f1ef1c9b9d929e3d738e7173cccfe21479c46d0d9af20d8d6cbe",
-				"dweb:/ipfs/QmW6tT1KMU6rzEUmKBMmgd1ehCFEkSB6vxrwGyEAS1F1E9"
+				"bzz-raw://c6b9628389925f65fc24b0b49d0e851467f6affcee04d3ae164388a565c34e8e",
+				"dweb:/ipfs/QmXVQtqF26thmCLLDkb1TUAK19gdnSmVLy6xxJFr7ns7km"
 			]
 		}
 	},

@@ -6,7 +6,8 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contr
 
 contract flipit is ERC20 {
     address _owner_;
-    uint256 private constant dec = 1e18;
+    //uint256 private constant dec = 1e18;
+    uint256 private constant dec = 1e6;
     address contractAddress;
     error NoToken(string);
     error TokenClaimed(string);
@@ -34,7 +35,7 @@ contract flipit is ERC20 {
         if (balanceOf(_addrs) > 0) {
             revert TokenClaimed("Address Claimed!");
         }
-        _transfer(contractAddress, _addrs, 5_000 * dec);
+        _transfer(contractAddress, _addrs, 10_000 * dec);
     }
 
     function Burn(uint256 _value) external {
@@ -78,7 +79,8 @@ contract flipit is ERC20 {
         payable (_owner_).transfer(address(this).balance);
     }
     function addressBalnc(address _user) public view  returns (uint256){
-        return _user.balance;   
+        return _user.balance;  
+        //ether 
     }
 }
 /* 
