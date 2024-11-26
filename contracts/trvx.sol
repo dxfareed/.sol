@@ -11,10 +11,13 @@ interface IERC20 {
 }
 
 contract TriviaBase{
-    address constant usdctokenAddress= 0xb53007d5525F05AD16C16e0012a8795f156213cE;
+    address constant usdctokenAddress= 0xb634247Abf7A50Dd7b9Cf6671A3e83F34f5f78D0;
     uint private constant dec = 1*1e6;
+    TriviaBaseCreate storeUserData;
     error insufficientContractBalance();
-    TriviaBaseCreate storeUserData = TriviaBaseCreate(0xB825b9D50D093d6EC49e4f3D43AD9915eb6CcCc3); 
+    constructor (address _contract) {
+        storeUserData = TriviaBaseCreate(_contract);
+    }
     //ca transfer done
 
         //func trnasfer token from _user to ca
@@ -27,12 +30,12 @@ contract TriviaBase{
         address[] winners;
         address[] losers;
         function sendInfo(address[] memory _users) external {
-            for (uint i; i < 3; i++){
-                winners.push(_users[i]);
+            for (uint i=0; i < 3; i++){
                 storeUserData.incrementTotalWon(_users[i]);
+                winners.push(_users[i]);
             }
             
-             for (uint i; i < _users.length; i++) {
+             for (uint i=0; i < _users.length; i++) {
                 storeUserData.incrementTotalPlayed(_users[i]);
             }
 
@@ -69,7 +72,7 @@ contract TriviaBase{
 }
 //0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2
 //0x03588888D41550112f64f56574A30EA86972FE4F
-//[0x617F2E2fD72FD9D5503197092aC168c91465E7f2,0x17F6AD8Ef982297579C203069C1DbfFE4348c372,0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db,0x03588888D41550112f64f56574A30EA86972FE4F]
+//[0x17F6AD8Ef982297579C203069C1DbfFE4348c372,0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db,0x03588888D41550112f64f56574A30EA86972FE4F]
 contract TriviaBaseCreate{
     mapping ( address => uint )  userTotalPlayed;
     mapping ( address => uint )  userTotalCreated;
@@ -78,13 +81,13 @@ contract TriviaBaseCreate{
     
     
     function createTriviaContract() external returns(address) {
-        TriviaBase _trivia = new TriviaBase();
         userTotalCreated[msg.sender]++;
+        TriviaBase _trivia = new TriviaBase(address(this));
         return address(_trivia);
     }
 
-    function incrementTotalWon(address _sender)external {
-        userTotalWon[_sender]=userTotalWon[_sender]+1;   
+    function incrementTotalWon(address _sender) external {
+        userTotalWon[_sender]++;   
     }
 
     function incrementTotalPlayed(address _sender) external {
@@ -108,16 +111,6 @@ contract TriviaBaseCreate{
     function displayTotalLoss(address _sender) external view {
         userTotalLoss[_sender];
     }
-    
-   /*  function userTotalCreatedFunc() public returns(uint){
-       // return address(this).balance;
-        return userTotalCreated[address(this)];
-    }
-
-   /*  function userTotalLossFunc(address _user) public returns(uint){
-        userTotalLoss[_user]++;
-        return userTotalLoss[_user];
-    } */
 
 }
 

@@ -175,11 +175,11 @@
 	},
 	"sources": {
 		"contracts/trvx.sol": {
-			"keccak256": "0x2fd89fabf9cfc5e592d87e2d4e70482f3788d59677c41d2a6fdf200b4b0e4898",
+			"keccak256": "0x53b961885db9c9b25c70321deacf63e2027931a010537a63a598edcaba5fa436",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://c6b9628389925f65fc24b0b49d0e851467f6affcee04d3ae164388a565c34e8e",
-				"dweb:/ipfs/QmXVQtqF26thmCLLDkb1TUAK19gdnSmVLy6xxJFr7ns7km"
+				"bzz-raw://b7c5e26245bd8be9d97f14a10c8f4a5abf3a6e8f5de3527ccae2c287fd680809",
+				"dweb:/ipfs/QmPzatLGMcUuduKUorjWWbKEBiqxemqiNUpypmk22pH6Rh"
 			]
 		}
 	},
