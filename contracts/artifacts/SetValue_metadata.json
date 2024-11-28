@@ -1,0 +1,72 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_val",
+						"type": "uint256"
+					}
+				],
+				"name": "HelloWorld",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "returnval",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/setinp.sol": "SetValue"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/setinp.sol": {
+			"keccak256": "0x35b2b4ff723c104fadecae6dff4a734b3f6550c2debad88ae98292ab682b8be2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://61887cf2fa9013b6b504c8054b67649ceda49bd985ffb906edb06b19a6921624",
+				"dweb:/ipfs/QmWbE1oJzvcyLzcNysG6DiifwhqjCGpSRdqELSgfJQ3jpF"
+			]
+		}
+	},
+	"version": 1
+}
