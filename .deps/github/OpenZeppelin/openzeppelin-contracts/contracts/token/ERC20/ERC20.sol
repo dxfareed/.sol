@@ -92,7 +92,7 @@ abstract contract ERC20 is Context, IERC20, IERC20Metadata, IERC20Errors {
     function balanceOf(address account) public view virtual returns (uint256) {
         return _balances[account];
     }
-
+    
     /**
      * @dev See {IERC20-transfer}.
      *

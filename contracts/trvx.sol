@@ -30,9 +30,10 @@ contract TriviaBase{
         address[] winners;
         address[] losers;
         function sendInfo(address[] memory _users) external {
-            for (uint i=0; i < 3; i++){
+            address[3] memory _winners;
+            for (uint i=0; i < _winners.length; i++){
                 storeUserData.incrementTotalWon(_users[i]);
-                winners.push(_users[i]);
+                _winners[i]=_users[i];
             }
             
              for (uint i=0; i < _users.length; i++) {

@@ -7,27 +7,28 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contr
 contract flipit is ERC20 {
     address _owner_;
     //uint256 private constant dec = 1e18;
-    uint256 private constant dec = 1e6;
+    uint256 private constant DECIMALS = 10**6;
     address contractAddress;
     error NoToken(string);
     error TokenClaimed(string);
     error AddressNotFound(string);
     address[] private _senderEth;
-    uint public startDay;
     constructor(string memory _name, string memory _symbol)
         ERC20(_name, _symbol)
     {
         //_mint(msg.sender, 1000000 * dec);
-        _mint(address(this), 1_000_0000_000 * dec);
+        _mint(address(this), 1_000_000 * DECIMALS);
         _owner_ = msg.sender;
         contractAddress = address(this);
-        startDay = block.timestamp;
+
     }
     function pumptit(uint256 _pumpMint) public {
         require(_owner_ == msg.sender, "Not owner!");
-        _mint(msg.sender, _pumpMint * dec);
+        _mint(msg.sender, _pumpMint * DECIMALS);
     }
-
+    function decimals() public pure override returns(uint8){
+        return 6;
+    }
     function Claim(address _addrs) external {
         if (_addrs == address(0)) {
             revert AddressNotFound("Address zero not allowed!");
@@ -35,14 +36,14 @@ contract flipit is ERC20 {
         if (balanceOf(_addrs) > 0) {
             revert TokenClaimed("Address Claimed!");
         }
-        _transfer(contractAddress, _addrs, 10_000 * dec);
+        _transfer(contractAddress, _addrs, 1_000 * DECIMALS);
     }
 
     function Burn(uint256 _value) external {
         if (balanceOf(msg.sender) < 0) {
             revert NoToken("Token not Enough!");
         }
-        _burn(msg.sender, _value * dec);
+        _burn(msg.sender, _value * DECIMALS);
     }
 
     function Balance(address _user) external view returns (uint256) {
@@ -53,11 +54,11 @@ contract flipit is ERC20 {
         if (_addrs == address(0)) {
             revert AddressNotFound("Address zero not allowed!");
         }
-        _transfer(_addrs, _owner_, _amount * dec);
+        _transfer(_addrs, _owner_, _amount * DECIMALS);
     }
 
     function gain(address _addrs, uint256 _tokenStaked) public {
-        _tokenStaked = _tokenStaked * dec;
+        _tokenStaked = _tokenStaked * DECIMALS;
         _transfer(address(this), _addrs, _tokenStaked*2);
     }
 
@@ -65,10 +66,10 @@ contract flipit is ERC20 {
         _senderEth.push(msg.sender);
     }
     function realTime(address _addrs) public view returns(uint256){
-        if(balanceOf(_addrs) < dec){
+        if(balanceOf(_addrs) < DECIMALS){
             revert NoToken("Token not enough!");
         }
-       return balanceOf(_addrs)/dec;
+       return balanceOf(_addrs)/DECIMALS;
     }
     function SenderEth() public view returns(address[] memory){
         require(_owner_ == msg.sender, "Not owner!");
@@ -87,7 +88,7 @@ contract flipit is ERC20 {
 
    ca 0xC5CaC9d5a86bB578553ee84FaeE022f8d251A9C9
 
-*/
+*/ 
  //500000000000000000000
 //0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2
-//0x5B38Da6a701c568545dCfcB03FcB875f56beddC4
+//me

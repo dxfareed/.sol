@@ -344,7 +344,7 @@
 						"type": "uint8"
 					}
 				],
-				"stateMutability": "view",
+				"stateMutability": "pure",
 				"type": "function"
 			},
 			{
@@ -425,19 +425,6 @@
 					}
 				],
 				"name": "realTime",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "startDay",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -653,11 +640,11 @@
 	},
 	"sources": {
 		"contracts/flipit.sol": {
-			"keccak256": "0x699ea8d1154a3714df70367afd3790381340941505a617cd813c87e3fb0f2f23",
+			"keccak256": "0x5431a13cc3495cf5a46143ea03d754fde8d2f2a24f2c31271755716d7c3172f4",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://e7c139663c928a40f329f795e0536ac48be32007a9fd8885d15fb69fbde16e4d",
-				"dweb:/ipfs/QmbFKcvDNYwxhnV6FHHD3gABvvnCadSFiR5JcRLy6ctht8"
+				"bzz-raw://4999a74ae9874d7730d4bde71424a614bb0ce6d217fe6a3d7d77323f356d4b53",
+				"dweb:/ipfs/Qmc425h6K7mcgUFHjx1ZmQDfUe6kyjeH6FXKc78pAAzeDo"
 			]
 		},
 		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/interfaces/draft-IERC6093.sol": {
@@ -669,11 +656,11 @@
 			]
 		},
 		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol": {
-			"keccak256": "0xd7c9f6f5f3386c29eee9321197fd83ac735c9c3c21431065f0e8e10fe3d0739c",
+			"keccak256": "0x970109a2c0e9576559d23ca61e5a7d948976fdfa5d708908b66d138ecff417eb",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://096db22b340a43c39b39383ca644dbe0a50c7984fe9cec6a0cf4c2ac8b985dd7",
-				"dweb:/ipfs/QmNRjJL4pHyPd2eEbtdxhCTMK1xfSScGZ2RvEggnVdfrDN"
+				"bzz-raw://9f2adff2280da70ce36727c831704c957d3529dc53e13250a4b85592c84d5c5e",
+				"dweb:/ipfs/QmXwcamNAZkVctXKXnLkfcoVzCsuhyznV52xZFY5uNNgkM"
 			]
 		},
 		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/IERC20.sol": {

@@ -8,12 +8,12 @@
 			{
 				"inputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "uint256[]",
 						"name": "_val",
-						"type": "uint256"
+						"type": "uint256[]"
 					}
 				],
-				"name": "HelloWorld",
+				"name": "addVal",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -23,9 +23,9 @@
 				"name": "returnval",
 				"outputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "uint256[]",
 						"name": "",
-						"type": "uint256"
+						"type": "uint256[]"
 					}
 				],
 				"stateMutability": "view",
@@ -60,11 +60,11 @@
 	},
 	"sources": {
 		"contracts/setinp.sol": {
-			"keccak256": "0x35b2b4ff723c104fadecae6dff4a734b3f6550c2debad88ae98292ab682b8be2",
+			"keccak256": "0xd058709bae30c0ac16725eb6ee3e3b7bce3e9392415edcd2ab6523c67ad29006",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://61887cf2fa9013b6b504c8054b67649ceda49bd985ffb906edb06b19a6921624",
-				"dweb:/ipfs/QmWbE1oJzvcyLzcNysG6DiifwhqjCGpSRdqELSgfJQ3jpF"
+				"bzz-raw://b9b1173b68e29f40b1306791c220c0f196b3b344b346ba5c69d465a73601287a",
+				"dweb:/ipfs/QmUi5uqnAu9H4FBLrcz4pEWKoZoCG9rqLEuWFWpnxosJdF"
 			]
 		}
 	},
