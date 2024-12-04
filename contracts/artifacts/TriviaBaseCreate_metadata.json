@@ -19,131 +19,16 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_sender",
-						"type": "address"
-					}
-				],
-				"name": "displayTotalCreated",
+				"inputs": [],
+				"name": "heyhey",
 				"outputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "address",
 						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_sender",
 						"type": "address"
 					}
 				],
-				"name": "displayTotalLoss",
-				"outputs": [],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_sender",
-						"type": "address"
-					}
-				],
-				"name": "displayTotalPlayed",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_sender",
-						"type": "address"
-					}
-				],
-				"name": "displayTotalWon",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_sender",
-						"type": "address"
-					}
-				],
-				"name": "incrementTotalLoss",
-				"outputs": [],
 				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_sender",
-						"type": "address"
-					}
-				],
-				"name": "incrementTotalPlayed",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_sender",
-						"type": "address"
-					}
-				],
-				"name": "incrementTotalWon",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "userTotalLoss",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
 				"type": "function"
 			}
 		],
@@ -160,7 +45,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/trvx.sol": "TriviaBaseCreate"
+			"contracts/typetrvx.sol": "TriviaBaseCreate"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -174,12 +59,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/trvx.sol": {
-			"keccak256": "0xf05e9fe71975e9f199228e2cd89df3e5a564a6231111ad988d8d1bdc2c416803",
+		"contracts/typetrvx.sol": {
+			"keccak256": "0x885fac01c1b8b8a7b73bb2d1fe65418e3d148a80ecd54f5930da342d3fd03783",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://dddafbd90bcce8d28fc4424fbd4176d3a5412c2a303291e41962a036d0044d31",
-				"dweb:/ipfs/QmY6w3CejmMkF36Lm5agyitQ1CChEjqeFubZFS6ZwbVFzy"
+				"bzz-raw://56b74956c6a7926379ffd2cc181821b692f5c26bef12c97be9f71f979d16d1a3",
+				"dweb:/ipfs/QmQmTZsbjuNvqq7US4Mt9iKQMqq8Tr9TRcnjSQYRusGWHa"
 			]
 		}
 	},

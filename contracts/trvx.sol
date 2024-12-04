@@ -7,11 +7,10 @@ interface IERC20 {
     function allowance(address owner, address spender) external view returns (uint256);
     function balanceOf(address account) external view returns (uint256);
     function transfer(address recipient, uint256 amount) external returns (bool);
-    function approve(address spender, uint256 amount) external returns (bool);
 }
 
 contract TriviaBase{
-    address constant usdctokenAddress= 0xb634247Abf7A50Dd7b9Cf6671A3e83F34f5f78D0;
+    address constant usdcMockToken= 0xb634247Abf7A50Dd7b9Cf6671A3e83F34f5f78D0;
     uint private constant dec = 1*1e6;
     TriviaBaseCreate storeUserData;
     error insufficientContractBalance();
@@ -22,8 +21,8 @@ contract TriviaBase{
 
         //func trnasfer token from _user to ca
         function transfer2CA(uint _amount) external returns(address _sender) {
-            require(IERC20(usdctokenAddress).balanceOf(msg.sender)>=_amount, "Insufficent Balance");
-            IERC20(usdctokenAddress).transferFrom(msg.sender, address(this), _amount);
+            require(IERC20(usdcMockToken).balanceOf(msg.sender)>=_amount, "Insufficent Balance");
+            IERC20(usdcMockToken).transferFrom(msg.sender, address(this), _amount);
             return msg.sender;
         }
 
@@ -47,7 +46,7 @@ contract TriviaBase{
         }
 
         function sendRewards() external {
-            uint contractRewards =  IERC20(usdctokenAddress).balanceOf(address(this));
+            uint contractRewards =  IERC20(usdcMockToken).balanceOf(address(this));
             if(contractRewards == 0){
                 revert insufficientContractBalance();
             }
@@ -55,9 +54,9 @@ contract TriviaBase{
             uint secondPlayer = (29 * contractRewards * dec)/(100 * dec);
             uint thirdPlayer = (9 * contractRewards * dec)/(100 * dec);
 
-            IERC20(usdctokenAddress).transfer(winners[0],firstPlayer);
-            IERC20(usdctokenAddress).transfer(winners[1],secondPlayer);
-            IERC20(usdctokenAddress).transfer(winners[2],thirdPlayer);
+            IERC20(usdcMockToken).transfer(winners[0],firstPlayer);
+            IERC20(usdcMockToken).transfer(winners[1],secondPlayer);
+            IERC20(usdcMockToken).transfer(winners[2],thirdPlayer);
             delete winners;
            // return (firstPlayer, secondPlayer, thirdPlayer,(firstPlayer+secondPlayer+thirdPlayer)/dec);
         }
@@ -67,7 +66,7 @@ contract TriviaBase{
         }
 
         function balance( address _user) external view returns(uint){
-            uint ownerBalance =  IERC20(usdctokenAddress).balanceOf(_user);
+            uint ownerBalance =  IERC20(usdcMockToken).balanceOf(_user);
             return ownerBalance;
         }
 }

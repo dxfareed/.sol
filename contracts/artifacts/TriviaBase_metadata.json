@@ -9,7 +9,12 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_contract",
+						"name": "_usdcMockToken",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_admin",
 						"type": "address"
 					}
 				],
@@ -18,68 +23,50 @@
 			},
 			{
 				"inputs": [],
-				"name": "insufficientContractBalance",
+				"name": "InsufficientContractBalance",
 				"type": "error"
 			},
 			{
+				"anonymous": false,
 				"inputs": [
 					{
-						"internalType": "address",
-						"name": "_user",
-						"type": "address"
-					}
-				],
-				"name": "balance",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_user",
-						"type": "address"
-					}
-				],
-				"name": "callPLayed",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
+						"indexed": false,
+						"internalType": "address[3]",
+						"name": "winners",
+						"type": "address[3]"
 					},
 					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
+						"indexed": false,
+						"internalType": "uint256[3]",
+						"name": "rewards",
+						"type": "uint256[3]"
 					}
 				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address[]",
-						"name": "_users",
-						"type": "address[]"
-					}
-				],
-				"name": "sendInfo",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
+				"name": "RewardsDistributed",
+				"type": "event"
 			},
 			{
 				"inputs": [],
-				"name": "sendRewards",
+				"name": "admin",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address[3]",
+						"name": "_users",
+						"type": "address[3]"
+					}
+				],
+				"name": "sndRewards",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -92,15 +79,22 @@
 						"type": "uint256"
 					}
 				],
-				"name": "transfer2CA",
+				"name": "transferFunctionUsdc",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "usdcMockToken",
 				"outputs": [
 					{
 						"internalType": "address",
-						"name": "_sender",
+						"name": "",
 						"type": "address"
 					}
 				],
-				"stateMutability": "nonpayable",
+				"stateMutability": "view",
 				"type": "function"
 			}
 		],
@@ -117,7 +111,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/trvx.sol": "TriviaBase"
+			"contracts/effct.sol": "TriviaBase"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -131,12 +125,28 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/trvx.sol": {
-			"keccak256": "0xf05e9fe71975e9f199228e2cd89df3e5a564a6231111ad988d8d1bdc2c416803",
+		"@openzeppelin/contracts/proxy/Clones.sol": {
+			"keccak256": "0xf55d01dac75cffdabec6833a79bf3be0c108fc0db10e273daf7adfd3e9e59dae",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://dddafbd90bcce8d28fc4424fbd4176d3a5412c2a303291e41962a036d0044d31",
-				"dweb:/ipfs/QmY6w3CejmMkF36Lm5agyitQ1CChEjqeFubZFS6ZwbVFzy"
+				"bzz-raw://540002a50a2a1a2b9dafffb976178e55adbf8d3a28db462c69f996921479c6b0",
+				"dweb:/ipfs/QmQNAFyMf2FW3U1giM4Yej3zzd1pnxMtAA5GoADj4hTYYD"
+			]
+		},
+		"@openzeppelin/contracts/utils/Errors.sol": {
+			"keccak256": "0x6afa713bfd42cf0f7656efa91201007ac465e42049d7de1d50753a373648c123",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ba1d02f4847670a1b83dec9f7d37f0b0418d6043447b69f3a29a5f9efc547fcf",
+				"dweb:/ipfs/QmQ7iH2keLNUKgq2xSWcRmuBE5eZ3F5whYAkAGzCNNoEWB"
+			]
+		},
+		"contracts/effct.sol": {
+			"keccak256": "0x826e5af8905361e19d61b1a2675c03a16123bdd28771206c588853298e8ec71b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://eb2db0286ad6bd19eed14b9e933b2e53b52388e373a78c432d6ca1c1846fa553",
+				"dweb:/ipfs/QmQkSkYiWpmfMrRchfQuAQFfcTVv9xYjndtRbYowwmZMnJ"
 			]
 		}
 	},
