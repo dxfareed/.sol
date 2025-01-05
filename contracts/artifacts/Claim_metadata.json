@@ -1,0 +1,69 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "UserClaimedToken",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					}
+				],
+				"name": "getToken",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/claimTrvx.sol": "Claim"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/claimTrvx.sol": {
+			"keccak256": "0xb5668dea18882fd02467dcbc9b40cd1e609c5bb919c7a0cdfd5f2e6ade393a5f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f933ab82c093bd569105d6884e43a81dc62907707c7295e5ffce8acea69a934f",
+				"dweb:/ipfs/QmXvuPh8C3y5vgJGAFmA77ztNhFYwfvTVoc2YEYkSizEZU"
+			]
+		}
+	},
+	"version": 1
+}

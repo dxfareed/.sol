@@ -8,23 +8,15 @@ interface IERC20 {
 }
 
 contract TriviaBase {
-    address public immutable usdcMockToken;
-    address public immutable admin;
+    address private immutable usdcMockToken = 0x1241676d45b1Cb5B573b6258C4A838e149A1D191;
+    address private immutable admin = 0x52c043C7120d7DA35fFdDF6C5c2359d503ceE5F8;
+
 
     event RewardsDistributed(address[3] winners, uint[3] rewards);
 
-    constructor(address _usdcMockToken, address _admin) {
-        usdcMockToken = _usdcMockToken;
-        admin = _admin;
-    }
-
     error InsufficientContractBalance();
 
-    function transferFunctionUsdc(uint _amount) external {
-        IERC20(usdcMockToken).transferFrom(msg.sender, address(this), _amount);
-    }
-
-    function sndRewards(address[3] memory _users) external {
+    function sndRewards(address[3] memory _users) external onlyAddress {
         uint contractRewards = IERC20(usdcMockToken).balanceOf(address(this));
         if (contractRewards == 0) revert InsufficientContractBalance();
 
@@ -33,11 +25,12 @@ contract TriviaBase {
             (29 * contractRewards) / 100,
             (9 * contractRewards) / 100
         ];
+        uint adminreward= (4 * contractRewards) / 100;
 
         for (uint i = 0; i < 3; i++) {
             IERC20(usdcMockToken).transfer(_users[i], rewards[i]);
         }
-
+        IERC20(usdcMockToken).transfer(admin, adminreward);
         emit RewardsDistributed(_users, rewards);
     }
 
@@ -50,11 +43,7 @@ contract TriviaBase {
 import "@openzeppelin/contracts/proxy/Clones.sol";
 
 contract TriviaBaseFactory {
-    address private constTrivia;
-
-    constructor(address _constTrivia) {
-        constTrivia = _constTrivia;
-    }
+    address private constTrivia = 0xf3d0bab35885fb8b2afED184b474e2AC8b0aB217;
 
     event EmitNewTriviaContract( address _TriviaBase );
 

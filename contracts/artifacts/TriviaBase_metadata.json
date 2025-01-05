@@ -6,22 +6,6 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_usdcMockToken",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "_admin",
-						"type": "address"
-					}
-				],
-				"stateMutability": "nonpayable",
-				"type": "constructor"
-			},
-			{
 				"inputs": [],
 				"name": "InsufficientContractBalance",
 				"type": "error"
@@ -47,12 +31,19 @@
 			},
 			{
 				"inputs": [],
-				"name": "admin",
+				"name": "EmergencyWithdrawalAdmin",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "ReturnContractBalnc",
 				"outputs": [
 					{
-						"internalType": "address",
+						"internalType": "uint256",
 						"name": "",
-						"type": "address"
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -66,35 +57,9 @@
 						"type": "address[3]"
 					}
 				],
-				"name": "sndRewards",
+				"name": "RewardWinners",
 				"outputs": [],
 				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "_amount",
-						"type": "uint256"
-					}
-				],
-				"name": "transferFunctionUsdc",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "usdcMockToken",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
 				"type": "function"
 			}
 		],
@@ -111,7 +76,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/effct.sol": "TriviaBase"
+			"contracts/effct2.sol": "TriviaBase"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -141,12 +106,12 @@
 				"dweb:/ipfs/QmQ7iH2keLNUKgq2xSWcRmuBE5eZ3F5whYAkAGzCNNoEWB"
 			]
 		},
-		"contracts/effct.sol": {
-			"keccak256": "0x826e5af8905361e19d61b1a2675c03a16123bdd28771206c588853298e8ec71b",
+		"contracts/effct2.sol": {
+			"keccak256": "0xc5df51444ba31ba8e167b0e3fae2d54349147f8421c4beac70c7aa46cce2bba1",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://eb2db0286ad6bd19eed14b9e933b2e53b52388e373a78c432d6ca1c1846fa553",
-				"dweb:/ipfs/QmQkSkYiWpmfMrRchfQuAQFfcTVv9xYjndtRbYowwmZMnJ"
+				"bzz-raw://43d07a13175ed1a04bb52e549b5ed9b452d1c1f911512e9bb4ac3f75a562786a",
+				"dweb:/ipfs/QmQhXTBRhkjELKdBWxC5cyJ54t1H18C6Vu4aQyodbw1q4x"
 			]
 		}
 	},
