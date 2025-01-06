@@ -106,11 +106,11 @@
 	},
 	"sources": {
 		"contracts/shareAdminReward.sol": {
-			"keccak256": "0x2feb1000fe4dca79a936897d80b8580183fb364309fcf3eaa6503a7ec7bfc317",
+			"keccak256": "0xf21c02a59ba982f2809dde6f85921df9a30a6465c3dda8175abc1ca1a777acb1",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://7470c48be14dd37ab4720d28917cf65429eb6b826d304874fbf8e07569641ca4",
-				"dweb:/ipfs/QmZaFuLWbsfn6BE4YZTnd1cdXGK8FhDzJFmdjzYnjXnTCC"
+				"bzz-raw://aa14a0db54e0a7612b2913d3339a19ba83c8337de35899a1e1071dab27fa8e6d",
+				"dweb:/ipfs/QmazV45fu4ZjZipxyAsNS9ceGZgUHfY7AcXmDVSQg1572P"
 			]
 		}
 	},
