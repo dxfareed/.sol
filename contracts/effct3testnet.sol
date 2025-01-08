@@ -31,12 +31,19 @@ contract TriviaBase {
     function RewardWinners(address[3] memory _users) external onlyAddress {
         uint contractBalance = IERC20(usdcMockToken).balanceOf(address(this));
         if (contractBalance == 0) revert InsufficientContractBalance();
+        //uint scale = 10;
 
         uint[3] memory user_reward = [
-            (58 * contractBalance) / 100,
+            (48 * contractBalance) / 100,
             (29 * contractBalance) / 100,
-            (9 * contractBalance) / 100
+            (19 * contractBalance) / 100
         ];
+
+       /*  uint[3] memory user_reward = [
+            (uint(482) * contractBalance) / (100 * scale), // 48.2%
+            (uint(290) * contractBalance) / (100 * scale), // 29.0%
+            (uint(190) * contractBalance) / (100 * scale)  // 19.0%
+        ]; */
 
         uint admin_reward = (4 * contractBalance) / 100;
 

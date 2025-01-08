@@ -122,11 +122,11 @@
 			]
 		},
 		"contracts/effct3testnet.sol": {
-			"keccak256": "0xaf89391975f1e14d7a088271e0816ad0fb3dbf2312ce57787615f766fbe44ad7",
+			"keccak256": "0x7bef447484b68805bc3277c55522c60132eba8ef99e0562ff31d20666ded9932",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://8d8cf045b4c3690ab66144aaa6ec57820ecc4bbd4c637ce7ebe8126b7c445124",
-				"dweb:/ipfs/QmXhuF3hD2vVFoUFyepbciP6TfcnuXb3Rx7v4iUFXwwaDm"
+				"bzz-raw://8e4ac32e5058a33fd1cdbc2bcfcdc415171dc94eb8da7e3158798b112a9aaa10",
+				"dweb:/ipfs/QmXxqvzSAXTNquEnLXcpbrdSD48hAtX1MwJwUWU9tzUxW2"
 			]
 		}
 	},
