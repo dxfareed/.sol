@@ -65,7 +65,7 @@ contract TriviaBase {
 import "@openzeppelin/contracts/proxy/Clones.sol";
 
 contract TriviaBaseFactory {
-    address private immutable TRIVIA = 0x7102f6ebbcC678F28622B9308d18c486Fc7503dE;
+    address private immutable TRIVIA = 0xDA2DDec4D6384b43ED700c7B8E165aF3b7E54559;
 
     event EmitNewTriviaContract( address _TriviaBase );
 

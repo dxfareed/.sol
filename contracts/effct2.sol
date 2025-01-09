@@ -34,9 +34,9 @@ contract TriviaBase {
         if (contractBalance == 0) revert InsufficientContractBalance();
 
         uint[3] memory user_reward = [
-            (58 * contractBalance) / 100,
+            (48 * contractBalance) / 100,
             (29 * contractBalance) / 100,
-            (9 * contractBalance) / 100
+            (19 * contractBalance) / 100
         ];
 
         uint admin_reward = (4 * contractBalance) / 100;
