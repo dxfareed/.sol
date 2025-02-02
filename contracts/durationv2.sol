@@ -4,22 +4,28 @@ pragma solidity >=0.8.0;
 
 interface IERC20 {
     function balanceOf(address account) external view returns (uint256);
-    function transfer(address recipient, uint256 amount) external returns (bool);
+
+    function transfer(address recipient, uint256 amount)
+        external
+        returns (bool);
 }
+
+//10_000_000_000_000_000_000
 
 contract DurationTest {
     address private immutable admin;
-    uint256 private immutable DurationWeeks;
-    uint private magicNum = 90;
+    uint256 private immutable PERIOD;
+    address private immutable MOCK_BUILD;
 
     constructor() {
         admin = 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4;
-        DurationWeeks = 10 weeks;
+        MOCK_BUILD = 0xa1fFfD1Ae86153799DB6C8c9C0e57602545b280e;
+        PERIOD = 10 weeks;
     }
 
     mapping(address => uint256) EligibleUser;
     address[] EligibleUserArr;
-
+    
     error DuplicateUserAdded(string);
     error IneligibleUsers(string);
 
@@ -45,7 +51,7 @@ contract DurationTest {
         }
     }
 
-    function RemoveEligibleUser(address _user) external {
+    function RemoveEligibleUser(address _user) external onlyAdmin {
         uint256 _len = EligibleUserArr.length;
 
         for (uint16 i; i < _len; i++) {
@@ -61,44 +67,46 @@ contract DurationTest {
         delete EligibleUser[_user];
     }
 
-        function test5minsClaim() external returns (uint256) {
-
+    function test5minsClaim() external returns (uint256) {
         if (EligibleUser[msg.sender] == 0) {
             revert IneligibleUsers("Not an eligible user!");
         }
 
-        uint256 _lastTime = (EligibleUser[msg.sender] + 5 minutes ) - 1;
+        uint256 _lastTime = (EligibleUser[msg.sender] + 5 minutes) - 1;
 
-        require( block.timestamp >= _lastTime, "claimm after 5 mins!" );
+        require(block.timestamp >= _lastTime, "claimm after 5 mins!");
 
-        EligibleUser[msg.sender] = block.timestamp ;
+        EligibleUser[msg.sender] = block.timestamp;
         return 0;
     }
 
     function testClaim() external returns (uint256) {
-        uint _lastTime;
-        uint _totalUser = EligibleUserArr.length;
+        uint256 _lastTime;
+        uint256 _totalUser = EligibleUserArr.length;
         if (EligibleUser[msg.sender] == 0) {
             revert IneligibleUsers("Not an eligible user!");
         }
 
-        if( EligibleUser[msg.sender] == 1 ){
+        if (EligibleUser[msg.sender] == 1) {
             // remove 1 after check :)
             _lastTime = (EligibleUser[msg.sender] + 1 weeks) - 1;
         }
 
         _lastTime = (EligibleUser[msg.sender] + 1 weeks);
 
-        require( block.timestamp >= _lastTime, "Once per week" );
-        require( IERC20(address(3) ).balanceOf(address(this)) > 0 );
+        require(block.timestamp >= _lastTime, "Once per week");
+        require(
+            IERC20(MOCK_BUILD).balanceOf(address(this)) > 0,
+            "Empty vault!"
+        );
         //end check get reward
         //pool of 10m, share reward based on total num of users in a pool.
 
-        uint each_portion = 10 / _totalUser;
+        uint256 each_portion = 10 / _totalUser;
 
-        IERC20(address(3) ).transfer(msg.sender, each_portion);
+        IERC20(MOCK_BUILD).transfer(msg.sender, each_portion);
 
-        EligibleUser[msg.sender] = block.timestamp ;
+        EligibleUser[msg.sender] = block.timestamp;
         return 0;
     }
 
@@ -115,6 +123,10 @@ contract DurationTest {
 
     function lis() external view returns (address[] memory) {
         return EligibleUserArr;
+    }
+
+    function ReadOnlyBalance4Dev() external view returns (uint256) {
+        return IERC20(MOCK_BUILD).balanceOf(address(this)) / 10**18;
     }
 
     function returndf(address _user) external view returns (uint256) {

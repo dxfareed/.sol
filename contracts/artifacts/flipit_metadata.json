@@ -344,6 +344,19 @@
 						"type": "uint8"
 					}
 				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "decimalsz",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
 				"stateMutability": "pure",
 				"type": "function"
 			},
@@ -640,11 +653,11 @@
 	},
 	"sources": {
 		"contracts/flipit.sol": {
-			"keccak256": "0x5431a13cc3495cf5a46143ea03d754fde8d2f2a24f2c31271755716d7c3172f4",
+			"keccak256": "0xb3ab30fd301e815826cc8bd2eac2bf6f5b04591294138b695d3179562cc9cb4a",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://4999a74ae9874d7730d4bde71424a614bb0ce6d217fe6a3d7d77323f356d4b53",
-				"dweb:/ipfs/Qmc425h6K7mcgUFHjx1ZmQDfUe6kyjeH6FXKc78pAAzeDo"
+				"bzz-raw://516c7d7a823f494ac626b38dae7f57c714b19c353e006870bbc96ad51507d354",
+				"dweb:/ipfs/QmXWKMDQHECkgnVJz4XT3grQsM7PZesgR6Lt7gmPFDMPib"
 			]
 		},
 		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/interfaces/draft-IERC6093.sol": {
