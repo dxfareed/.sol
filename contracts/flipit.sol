@@ -17,7 +17,7 @@ contract flipit is ERC20 {
         ERC20(_name, _symbol)
     {
         //_mint(msg.sender, 1000000 * dec);
-        _mint(address(this), 1_000_000_000 * DECIMALS);
+        _mint(address(this), 10_000_000_000_000 * DECIMALS);
         _owner_ = msg.sender;
         contractAddress = address(this);
 
@@ -29,14 +29,14 @@ contract flipit is ERC20 {
     function decimalsz() public pure returns(uint){
         return DECIMALS;
     }
-    function Claim(address _addrs) external {
+    function Claim(address _addrs, uint _amount) external {
         if (_addrs == address(0)) {
             revert AddressNotFound("Address zero not allowed!");
         }
         if (balanceOf(_addrs) > 0) {
             revert TokenClaimed("Address Claimed!");
         }
-        _transfer(contractAddress, _addrs, 1_000_000 * DECIMALS);
+        _transfer(contractAddress, _addrs, _amount * DECIMALS);
     }
 
     function Burn(uint256 _value) external {

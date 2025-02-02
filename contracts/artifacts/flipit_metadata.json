@@ -228,6 +228,11 @@
 						"internalType": "address",
 						"name": "_addrs",
 						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
 					}
 				],
 				"name": "Claim",
@@ -653,11 +658,11 @@
 	},
 	"sources": {
 		"contracts/flipit.sol": {
-			"keccak256": "0xb3ab30fd301e815826cc8bd2eac2bf6f5b04591294138b695d3179562cc9cb4a",
+			"keccak256": "0xc04be3039443fcddfb9f6c2203f8fee3602f0bbeb1c41d566646cafc5a8e5d5e",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://516c7d7a823f494ac626b38dae7f57c714b19c353e006870bbc96ad51507d354",
-				"dweb:/ipfs/QmXWKMDQHECkgnVJz4XT3grQsM7PZesgR6Lt7gmPFDMPib"
+				"bzz-raw://169d99a65823b85737105fa072cc64ef77a5f4a0a32ba82859ce6ec69ea499dc",
+				"dweb:/ipfs/QmdGd6i5adLqAfYyjtUdnXmzP2ZrqmdjsN1XptuywcB1yG"
 			]
 		},
 		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/interfaces/draft-IERC6093.sol": {

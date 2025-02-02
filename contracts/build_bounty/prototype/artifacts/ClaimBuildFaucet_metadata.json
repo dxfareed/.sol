@@ -1,0 +1,90 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "mock_build_ca",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "BalanceFaucet",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "ClaimFaucet",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "ReadOnly4DevBalanceFaucet",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/build_bounty/prototype/mock_build_token.sol": "ClaimBuildFaucet"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/build_bounty/prototype/mock_build_token.sol": {
+			"keccak256": "0x0689216d332e3ac9ddf1dab4b3a83b21d57c065648b5c1b78d5e76e9b36a6b56",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2c84c403b1db8de952ed48281e1dea358cf7bdb58e312e695a9cfe5bcff0cde0",
+				"dweb:/ipfs/QmNuDzguU9Na4ffxRHpsjGoRgVTbX1mhHSj4BioxKGxPju"
+			]
+		}
+	},
+	"version": 1
+}

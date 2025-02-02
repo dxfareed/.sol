@@ -1,0 +1,57 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "mock_build_ca",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/build_bounty/prototype/mock_build_token.sol": "ClaimBuildToken"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/build_bounty/prototype/mock_build_token.sol": {
+			"keccak256": "0x212e577587843dce0dc41e54c4393286a5807a952869e22b263edf95ed50cc03",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a7555162f2c8b2c338de7192bdf7922d1fa4e6e10e2f8e43c372c6834e07d758",
+				"dweb:/ipfs/QmPhvzZ83S5PhMB5MS8Sehk8YpHfBUgQoyQrT8bsZ8pjJD"
+			]
+		}
+	},
+	"version": 1
+}
