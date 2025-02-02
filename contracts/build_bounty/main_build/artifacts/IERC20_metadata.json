@@ -77,11 +77,11 @@
 	},
 	"sources": {
 		"contracts/build_bounty/main_build/reward_elig.sol": {
-			"keccak256": "0x0cbb88a08c11dfc751c0cc5cf3503c1565b75b48bedf7d8b254bb3385997835c",
+			"keccak256": "0x3d73dd44bb408ca853c93dc3d28e539e2e5edd28549a6f7a93a8896934c9e2cc",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://7ed2483270b248d030458fb28392a188ad87a9d5611ed668a5a07ee4b20caf5d",
-				"dweb:/ipfs/QmP1FnpThj6uowiLviKbHj6948NXLE6rLiP1GxiGTMAT8L"
+				"bzz-raw://21b1044d55728c8c6184a39aa159764fdc6b21207b983fce8a5e3158f3c3a6eb",
+				"dweb:/ipfs/QmWAqTJtggn4FxggpFvpHpJbHc4wfsg7wCdaDAKSsV6JSd"
 			]
 		}
 	},
