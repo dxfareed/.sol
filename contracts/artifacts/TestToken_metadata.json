@@ -1,0 +1,53 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "sendToken",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/test2token.sol": "TestToken"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/test2token.sol": {
+			"keccak256": "0xf0f5f4f6e7254686fe1884e365a6c7b176a4627952ed6011ac69fafccc48d6a9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://44e63c27abb73715ef65f65897eef516b50849bba80158ac2d7e205bd747c7ee",
+				"dweb:/ipfs/QmXBvt8Y1JLQx11Ke3G5wxtB1TcD8QnAcFSPsnhV2cGDKj"
+			]
+		}
+	},
+	"version": 1
+}

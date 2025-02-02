@@ -78,7 +78,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/effct3testnet.sol": "TriviaBaseFactory"
+			"contracts/effct2.sol": "TriviaBaseFactory"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -108,12 +108,12 @@
 				"dweb:/ipfs/QmQ7iH2keLNUKgq2xSWcRmuBE5eZ3F5whYAkAGzCNNoEWB"
 			]
 		},
-		"contracts/effct3testnet.sol": {
-			"keccak256": "0xcdecd0b1d44f65ce14e2dfe665e46c51fdeffb83c1920f5bf181eac075768c4f",
+		"contracts/effct2.sol": {
+			"keccak256": "0x2a16d2aa6f456d0bb06e50c3984a191f2fbab4f2e296507306660b3917c39a1b",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://d41110c78410cbba73d61fb5d9f440b5bc8f4501a9257572942803f391cf035d",
-				"dweb:/ipfs/QmTND8B8KjxmrFZMaSEvdFUU8k9fSU3kX3RvH9USnHPWRW"
+				"bzz-raw://b6ccb4e7d7fa4bbf0f5f8537eb067534f45e75667a46593c693bd48485ce4b4e",
+				"dweb:/ipfs/QmQd8bDs2M4A1NGNcSAsTMWfvoYJfbGfmZiJwq2gudSSZM"
 			]
 		}
 	},

@@ -11,9 +11,11 @@ interface IERC20 {
 contract AdminBank{
 
 
-    address private admin; 
     //address private immutable MAINNET_USDC = 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913;
+
+    address private admin; 
     address private immutable MOCK_USDC;
+    
     constructor(){
         admin = 0x70ca4a44A227645BB4815AE4d68098eA68aB926F;
         MOCK_USDC = 0x1241676d45b1Cb5B573b6258C4A838e149A1D191;
