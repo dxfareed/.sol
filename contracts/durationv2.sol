@@ -16,16 +16,17 @@ contract DurationTest {
     address private immutable admin;
     uint256 private immutable PERIOD;
     address private immutable MOCK_BUILD;
-
+    uint256 immutable POOL_AMOUNT; 
     constructor() {
         admin = 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4;
         MOCK_BUILD = 0xa1fFfD1Ae86153799DB6C8c9C0e57602545b280e;
+        POOL_AMOUNT = 10**7; 
         PERIOD = 10 weeks;
     }
 
     mapping(address => uint256) EligibleUser;
     address[] EligibleUserArr;
-    
+
     error DuplicateUserAdded(string);
     error IneligibleUsers(string);
 
@@ -33,6 +34,7 @@ contract DurationTest {
         if (EligibleUser[_user] > 0) {
             revert DuplicateUserAdded("User exist");
         }
+
         EligibleUser[_user] = 1;
         EligibleUserArr.push(_user);
     }
@@ -57,10 +59,11 @@ contract DurationTest {
         for (uint16 i; i < _len; i++) {
             //check
             if (EligibleUserArr[i] == _user) {
-                //shift & pop out
+                //shift
                 for (uint16 j = i; j < _len - 1; j++) {
                     EligibleUserArr[j] = EligibleUserArr[j + 1];
                 }
+                //then pop out
                 EligibleUserArr.pop();
             }
         }
@@ -74,7 +77,7 @@ contract DurationTest {
 
         uint256 _lastTime = (EligibleUser[msg.sender] + 5 minutes) - 1;
 
-        require(block.timestamp >= _lastTime, "claimm after 5 mins!");
+        require(block.timestamp >= _lastTime, "claim after 5 mins!");
 
         EligibleUser[msg.sender] = block.timestamp;
         return 0;
@@ -99,8 +102,8 @@ contract DurationTest {
             IERC20(MOCK_BUILD).balanceOf(address(this)) > 0,
             "Empty vault!"
         );
-        //end check get reward
-        //pool of 10m, share reward based on total num of users in a pool.
+        //end check, get reward
+        //pool of 10m, share reward based on total num of users in the pool.
 
         uint256 each_portion = 10 / _totalUser;
 

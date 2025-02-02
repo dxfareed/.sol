@@ -77,11 +77,11 @@
 	},
 	"sources": {
 		"contracts/durationv2.sol": {
-			"keccak256": "0x7597270cd434f68f631973668ebb0465ddea790645560539b661dd9169dcef61",
+			"keccak256": "0x74e49fb6b92085809797827d9ae5491a8e310fe02a8ac07a5d0d9ec54c8ab123",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://cbcf5feecf46130d5fdaa27c858fb3ec8dcc5c35e9c2131dfbcfcd68befa0574",
-				"dweb:/ipfs/QmTbBWmh8qHiERhyBdp9grWds4c63p4Rp67Sa1rG4dLDGc"
+				"bzz-raw://f67cf0b4a2a0a523622adeb66a61b332e47e785d08e8e963e28a6e0c7143a1a6",
+				"dweb:/ipfs/QmRyErr8qmBSivUX5cSTzbwJHrCssjq334usshqUTLpKcg"
 			]
 		}
 	},
