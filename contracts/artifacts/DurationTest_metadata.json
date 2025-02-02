@@ -6,6 +6,11 @@
 	"output": {
 		"abi": [
 			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "string",
@@ -14,6 +19,17 @@
 					}
 				],
 				"name": "DuplicateUserAdded",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"name": "IneligibleUsers",
 				"type": "error"
 			},
 			{
@@ -79,12 +95,38 @@
 				"name": "returndf",
 				"outputs": [
 					{
-						"internalType": "bool",
+						"internalType": "uint256",
 						"name": "",
-						"type": "bool"
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "test5minsClaim",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "testClaim",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
@@ -101,7 +143,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/duationclaim.sol": "DurationTest"
+			"contracts/durationv2.sol": "DurationTest"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -115,12 +157,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/duationclaim.sol": {
-			"keccak256": "0x235ba1da0614eeda1bc998fe14b63e8a008f9f867def64e62c5504991c835593",
+		"contracts/durationv2.sol": {
+			"keccak256": "0xe1c192cce70ef2f538f0fc570f65fb5f9265e9d45620a2d8be49c33375239ad9",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://7fa43ec0345077edd09f5096a8915daa4dfacf4dedef7f8902680f510dfe7a89",
-				"dweb:/ipfs/QmekZWCmfEgaXE9KJuBxDvDsp6NyXLPAhmCGD2K79B5K4p"
+				"bzz-raw://3b945139508897738a1f80c0d5f011d09a27f81c27b39443f8c1952b2f440cb4",
+				"dweb:/ipfs/QmUc9rfxvaeTmdNYof5HQwCnGvk2PtDjrXB6Lu1Vfn7hqZ"
 			]
 		}
 	},

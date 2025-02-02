@@ -47,35 +47,6 @@
 				],
 				"stateMutability": "nonpayable",
 				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "sender",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "recipient",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
-					}
-				],
-				"name": "transferFrom",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "nonpayable",
-				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -91,7 +62,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/effct2.sol": "IERC20"
+			"contracts/durationv2.sol": "IERC20"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -105,28 +76,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"@openzeppelin/contracts/proxy/Clones.sol": {
-			"keccak256": "0xf55d01dac75cffdabec6833a79bf3be0c108fc0db10e273daf7adfd3e9e59dae",
+		"contracts/durationv2.sol": {
+			"keccak256": "0xe1c192cce70ef2f538f0fc570f65fb5f9265e9d45620a2d8be49c33375239ad9",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://540002a50a2a1a2b9dafffb976178e55adbf8d3a28db462c69f996921479c6b0",
-				"dweb:/ipfs/QmQNAFyMf2FW3U1giM4Yej3zzd1pnxMtAA5GoADj4hTYYD"
-			]
-		},
-		"@openzeppelin/contracts/utils/Errors.sol": {
-			"keccak256": "0x6afa713bfd42cf0f7656efa91201007ac465e42049d7de1d50753a373648c123",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://ba1d02f4847670a1b83dec9f7d37f0b0418d6043447b69f3a29a5f9efc547fcf",
-				"dweb:/ipfs/QmQ7iH2keLNUKgq2xSWcRmuBE5eZ3F5whYAkAGzCNNoEWB"
-			]
-		},
-		"contracts/effct2.sol": {
-			"keccak256": "0x2a16d2aa6f456d0bb06e50c3984a191f2fbab4f2e296507306660b3917c39a1b",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://b6ccb4e7d7fa4bbf0f5f8537eb067534f45e75667a46593c693bd48485ce4b4e",
-				"dweb:/ipfs/QmQd8bDs2M4A1NGNcSAsTMWfvoYJfbGfmZiJwq2gudSSZM"
+				"bzz-raw://3b945139508897738a1f80c0d5f011d09a27f81c27b39443f8c1952b2f440cb4",
+				"dweb:/ipfs/QmUc9rfxvaeTmdNYof5HQwCnGvk2PtDjrXB6Lu1Vfn7hqZ"
 			]
 		}
 	},

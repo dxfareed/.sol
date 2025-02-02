@@ -1,0 +1,128 @@
+// SPDX-License-Identifier: MIT
+
+pragma solidity >=0.8.0;
+
+interface IERC20 {
+    function balanceOf(address account) external view returns (uint256);
+    function transfer(address recipient, uint256 amount) external returns (bool);
+}
+
+contract DurationTest {
+    address private immutable admin;
+    uint256 private immutable DurationWeeks;
+    uint private magicNum = 90;
+
+    constructor() {
+        admin = 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4;
+        DurationWeeks = 10 weeks;
+    }
+
+    mapping(address => uint256) EligibleUser;
+    address[] EligibleUserArr;
+
+    error DuplicateUserAdded(string);
+    error IneligibleUsers(string);
+
+    function AddEligibleUser(address _user) external onlyAdmin {
+        if (EligibleUser[_user] > 0) {
+            revert DuplicateUserAdded("User exist");
+        }
+        EligibleUser[_user] = 1;
+        EligibleUserArr.push(_user);
+    }
+
+    function AddMultipleEliglibleUser(address[] memory _users)
+        external
+        onlyAdmin
+    {
+        for (uint16 i; i < _users.length; i++) {
+            if (EligibleUser[_users[i]] > 0) {
+                continue;
+            }
+
+            EligibleUser[_users[i]] = 1;
+            EligibleUserArr.push(_users[i]);
+        }
+    }
+
+    function RemoveEligibleUser(address _user) external {
+        uint256 _len = EligibleUserArr.length;
+
+        for (uint16 i; i < _len; i++) {
+            //check
+            if (EligibleUserArr[i] == _user) {
+                //shift & pop out
+                for (uint16 j = i; j < _len - 1; j++) {
+                    EligibleUserArr[j] = EligibleUserArr[j + 1];
+                }
+                EligibleUserArr.pop();
+            }
+        }
+        delete EligibleUser[_user];
+    }
+
+        function test5minsClaim() external returns (uint256) {
+
+        if (EligibleUser[msg.sender] == 0) {
+            revert IneligibleUsers("Not an eligible user!");
+        }
+
+        uint256 _lastTime = (EligibleUser[msg.sender] + 5 minutes ) - 1;
+
+        require( block.timestamp >= _lastTime, "claimm after 5 mins!" );
+
+        EligibleUser[msg.sender] = block.timestamp ;
+        return 0;
+    }
+
+    function testClaim() external returns (uint256) {
+        uint _lastTime;
+        uint _totalUser = EligibleUserArr.length;
+        if (EligibleUser[msg.sender] == 0) {
+            revert IneligibleUsers("Not an eligible user!");
+        }
+
+        if( EligibleUser[msg.sender] == 1 ){
+            // remove 1 after check :)
+            _lastTime = (EligibleUser[msg.sender] + 1 weeks) - 1;
+        }
+
+        _lastTime = (EligibleUser[msg.sender] + 1 weeks);
+
+        require( block.timestamp >= _lastTime, "Once per week" );
+        require( IERC20(address(3) ).balanceOf(address(this)) > 0 );
+        //end check get reward
+        //pool of 10m, share reward based on total num of users in a pool.
+
+        uint each_portion = 10 / _totalUser;
+
+        IERC20(address(3) ).transfer(msg.sender, each_portion);
+
+        EligibleUser[msg.sender] = block.timestamp ;
+        return 0;
+    }
+
+    /*  uint8[] test = [1, 2, 3, 4, 5];
+
+    function arraytest(uint8 _index) external returns(uint8[] memory){
+        
+        for(uint8 i = _index; i < test.length - 1; i++){
+            test[i] = test[i + 1]; 
+        }
+        test.pop();
+        return test;
+    } */
+
+    function lis() external view returns (address[] memory) {
+        return EligibleUserArr;
+    }
+
+    function returndf(address _user) external view returns (uint256) {
+        return EligibleUser[_user];
+    }
+
+    modifier onlyAdmin() {
+        require(admin == msg.sender, "only admin can invoke this function");
+        _;
+    }
+}
