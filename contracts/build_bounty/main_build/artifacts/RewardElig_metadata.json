@@ -97,6 +97,31 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "CallSorted",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "sender",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "amount",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct RewardElig.DonateBuildRecord[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -149,6 +174,19 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "DepositBuild",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "ReadOnlyBalance4Dev",
 				"outputs": [
@@ -176,12 +214,12 @@
 			},
 			{
 				"inputs": [],
-				"name": "TotalAddressAWeek",
+				"name": "TotalBuildClaimed",
 				"outputs": [
 					{
-						"internalType": "address[]",
+						"internalType": "uint256",
 						"name": "",
-						"type": "address[]"
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -189,12 +227,38 @@
 			},
 			{
 				"inputs": [],
-				"name": "TotalUserAWeek",
+				"name": "TotalClaimedWeek",
 				"outputs": [
 					{
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "WeekTotalUser",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "WeekTotalUserAddress",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
 					}
 				],
 				"stateMutability": "view",
@@ -231,19 +295,6 @@
 				],
 				"stateMutability": "view",
 				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "test5minsClaim",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "nonpayable",
-				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -274,11 +325,11 @@
 	},
 	"sources": {
 		"contracts/build_bounty/main_build/reward_elig.sol": {
-			"keccak256": "0x3d73dd44bb408ca853c93dc3d28e539e2e5edd28549a6f7a93a8896934c9e2cc",
+			"keccak256": "0x0762d6b21daefa9a4a2cb1382203586214ce24d44e85250d065868f3d5de9dba",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://21b1044d55728c8c6184a39aa159764fdc6b21207b983fce8a5e3158f3c3a6eb",
-				"dweb:/ipfs/QmWAqTJtggn4FxggpFvpHpJbHc4wfsg7wCdaDAKSsV6JSd"
+				"bzz-raw://81b44fe007b13157df19c1178287481ebd0517ceb1f3f17cf6ae040e36803ea3",
+				"dweb:/ipfs/QmT9oCcco4rkCTxjrymsrQpebE6dcFyJ7VsYE7QSocPs4w"
 			]
 		}
 	},

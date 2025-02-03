@@ -8,11 +8,11 @@ interface IERC20 {
     function transfer(address recipient, uint256 amount)
         external
         returns (bool);
+    
+    function transferFrom(address sender, address recipient, uint256 amount)
+        external
+        returns (bool);
 }
-
-//100_000_000_000_000_000_000_000_000
-
-//10000000000000
 
 //[0x5B38Da6a701c568545dCfcB03FcB875f56beddC4,0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2,0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db]
 
@@ -30,9 +30,15 @@ contract RewardElig {
     address[] private EligibleUserArr;
     address private admin;
     uint256 public CurrentWeekStart;
+    uint256 private WeekTotalBuildClaim;
+    uint256 private TotalBuildClaim;
+    
+    struct DonateBuildRecord{
+        address sender;
+        uint amount;
+    }
 
-    
-    
+    DonateBuildRecord[] ArrayDonors;
 
     constructor(address _build_ca) {
         admin = msg.sender;
@@ -88,61 +94,10 @@ contract RewardElig {
         }
     }
 
-    function test5minsClaim() external returns (uint256) {
-        uint256 _lastTime;
-        uint256 _totalUser = EligibleUserArr.length;
-        if (EligibleUser[msg.sender] == 0) {
-            revert IneligibleUser("Not an eligible user!");
-        }
-
-        if (EligibleUser[msg.sender] == 1) {
-            // remove 1 after check :)
-            _lastTime = (EligibleUser[msg.sender] +  5 minutes ) - 1;
-        } else if (EligibleUser[msg.sender] > 1) {
-            _lastTime = (EligibleUser[msg.sender] +  5 minutes );
-        }
-
-        require(block.timestamp >= _lastTime, "Once per week");
-        require(
-            IERC20(MOCK_BUILD).balanceOf(address(this)) > 0,
-            "Empty vault!"
-        );
-
-      
-        //end check, get reward
-        //pool of 10m, share reward based on total num of users in the pool.
-
-    
-       
-
-        uint256 each_portion = POOL_AMOUNT / _totalUser;
-
-        IERC20(MOCK_BUILD).transfer(msg.sender, each_portion * magic_num);
-        EligibleUser[msg.sender] = block.timestamp;
-
-
-        for( uint16 i; i <EligibleUserClaimWeek.length; i++){
-            //little reset logic
-
-            if(EligibleUserClaimWeek[i] == msg.sender){
-                delete EligibleUserClaimWeek;
-                EligibleUserClaimWeek.push(msg.sender);
-                emit TotalUserClaim(EligibleUserClaimWeek.length);
-                emit ClaimRewardUser(msg.sender, each_portion);
-                return 0;
-            }
-        }
-
-        emit TotalUserClaim(EligibleUserClaimWeek.length);
-        emit ClaimRewardUser(msg.sender, each_portion);
-        EligibleUserClaimWeek.push(msg.sender);
-        return 0;
-    }
-
     function ClaimReward() external returns (uint256) {
 
         if (block.timestamp >= CurrentWeekStart + DURATION_PERIOD ) {
-            ResetTotalClaim();
+            ResetWeekTotalClaim();
             CurrentWeekStart = block.timestamp - (block.timestamp % DURATION_PERIOD );
         }
 
@@ -166,7 +121,8 @@ contract RewardElig {
             "Empty vault!"
         );
 
-      
+        uint256 each_pool_portion = POOL_AMOUNT / _totalUser;
+
         bool alreadyClaimed = false;
         for (uint16 i; i < EligibleUserClaimWeek.length; i++) {
             if (EligibleUserClaimWeek[i] == msg.sender) {
@@ -175,30 +131,76 @@ contract RewardElig {
             }
         }
         if (!alreadyClaimed) {
+            WeekTotalBuildClaim += each_pool_portion;
             EligibleUserClaimWeek.push(msg.sender);
         }
+        TotalBuildClaim += each_pool_portion;
        
-        uint256 each_portion = POOL_AMOUNT / _totalUser;
+        
+        IERC20(MOCK_BUILD).transfer(msg.sender, each_pool_portion * magic_num);
 
-        IERC20(MOCK_BUILD).transfer(msg.sender, each_portion * magic_num);
         EligibleUser[msg.sender] = block.timestamp;
 
-        emit ClaimRewardUser(msg.sender, each_portion);
+        emit TotalUserClaim(EligibleUserClaimWeek.length);
+        emit ClaimRewardUser(msg.sender, each_pool_portion);
         return 0;
     }
 
-    
-    function ResetTotalClaim() internal {
+    //return total for the week
+    function TotalClaimedWeek() external view returns(uint){
+        return WeekTotalBuildClaim;
+    }
+
+    //return whole total
+    function TotalBuildClaimed() external view returns(uint){
+        return TotalBuildClaim;
+    }
+
+    //reset the week total claim
+    function ResetWeekTotalClaim() internal {
+        WeekTotalBuildClaim = 0;
         delete EligibleUserClaimWeek;
     }
 
-    function TotalUserAWeek() external view returns(uint){
+    //length per week
+    function WeekTotalUser() external view returns(uint){
         return EligibleUserClaimWeek.length;
     }
 
-    function TotalAddressAWeek() external view returns(address[] memory){
+    //address per week in pool
+    function WeekTotalUserAddress() external view returns(address[] memory){
         return EligibleUserClaimWeek;
+    }
+   
     
+    //frontend handle. after approve then
+    function DepositBuild(uint256 _amount) external {
+        bool sucess = IERC20(MOCK_BUILD).transferFrom(msg.sender, address(this), _amount * magic_num);
+        if(sucess){
+            for (uint i; i < ArrayDonors.length; i++){
+                if(msg.sender == ArrayDonors[i].sender){
+                    ArrayDonors[i].amount += _amount;
+                    break;
+                }
+            }
+        }
+    }
+    
+    function CallSorted() external returns(DonateBuildRecord[] memory){
+        SortDonations();
+        return ArrayDonors;
+    }
+
+    function SortDonations() internal{
+        for (uint i = 0 ;i < ArrayDonors.length - 1; ++ i) {
+            for (uint j = i + 1;j < ArrayDonors.length;++ j){
+                if(ArrayDonors[i].amount > ArrayDonors[j].amount){
+                    DonateBuildRecord memory temp = ArrayDonors[i];
+                    ArrayDonors[i]=ArrayDonors[j];
+                    ArrayDonors[j] = temp; 
+                }
+            }
+        } 
     }
 
     function ChangeAdmin(address _newAdmin) external onlyAdmin{
