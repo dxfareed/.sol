@@ -186,6 +186,7 @@ contract RewardElig {
         }
     }
     
+    //frontend call
     function CallSorted() external returns(DonateBuildRecord[] memory){
         SortDonations();
         return ArrayDonors;
