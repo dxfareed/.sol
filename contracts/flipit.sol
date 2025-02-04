@@ -16,6 +16,7 @@ contract flipit is ERC20 {
     constructor(string memory _name, string memory _symbol)
         ERC20(_name, _symbol)
     {
+       // 10,000,000,000
         //_mint(msg.sender, 1000000 * dec);
         _mint(address(this), 10_000_000_000_000 * DECIMALS);
         _owner_ = msg.sender;

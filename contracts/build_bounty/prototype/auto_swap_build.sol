@@ -57,13 +57,11 @@ contract LiquidityContract{
     address public weth;
     IUniswapV2Router public uniswapRouter;
 
-    constructor(address _token) {
+    constructor() {
         // deploy the meme token
-        memeToken = _token;
         uniswapRouter = IUniswapV2Router(UNISWAP_V2_ROUTER);
 
         weth = uniswapRouter.WETH();
-
         IERC20(memeToken).approve(UNISWAP_V2_ROUTER, type(uint256).max);
 
         pair = IUniswapV2Factory(UNISWAP_V2_FACTORY).createPair(memeToken, weth);

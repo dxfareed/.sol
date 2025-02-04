@@ -6,13 +6,7 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_token",
-						"type": "address"
-					}
-				],
+				"inputs": [],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
 			},
@@ -223,10 +217,10 @@
 			]
 		},
 		"contracts/build_bounty/prototype/auto_swap_build.sol": {
-			"keccak256": "0x0455334fb59569025112e7ee64101285b0db6a4ca3d5595a8bf1b7dc0edadbd8",
+			"keccak256": "0x124115a5fbf4fc5f8c9529b178c88b63af4a7a807ec23ef39462c4263a2de424",
 			"urls": [
-				"bzz-raw://7a53502b1a99a77a8f3a957d052f50e099cb0666cd3fe3b30beb78bbe4fc5d6d",
-				"dweb:/ipfs/Qmc8evFeNuwADEr3QLeoP9rSsZ9Tu8m69kfmqSq74X49TA"
+				"bzz-raw://5260b92b97a8ff4894b08e3bdbdfbe5641535e8f1d61f67c7e1eb933a0ee51ae",
+				"dweb:/ipfs/Qmady3JW5M4dnZzExP3r8VxYWco8twf4WDwujtcC5A9Ssv"
 			]
 		},
 		"https://github.com/cakezero/mode-ai-agent-hackathon/blob/main/smart-contract/interface/IUniswapV2Factory.sol": {
