@@ -1,4 +1,4 @@
- //SPDX-License-Identfier:MIT
+//SPDX-License-Identfier:UNLICENSED;
 /*
 pragma solidity >=0.8.0;
 
@@ -36,61 +36,130 @@ contract AutoSwapDonation{
 
 } */
 
-pragma solidity >=0.8.0;
-
-import "@uniswap/v3-periphery/contracts/interfaces/ISwapRouter.sol";
-import "@uniswap/v3-periphery/contracts/interfaces/INonfungiblePositionManager.sol";
-import "@uniswap/v3-core/contracts/interfaces/IUniswapV3Factory.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "https://github.com/cakezero/mode-ai-agent-hackathon/blob/main/smart-contract/interface/IUniswapV2Router.sol";
+import "https://github.com/cakezero/mode-ai-agent-hackathon/blob/main/smart-contract/interface/IUniswapV2Factory.sol";
 
-contract CreateUniswapV3Pool {
-    address public immutable token;
-    address public immutable WETH = 0x4200000000000000000000000000000000000006;
-    address public immutable uniswapV3Factory = 0x4752ba5DBc23f44D87826276BF6Fd6b1C372aD24;
-    address public immutable positionManager = 0x27F971cb582BF9E50F397e4d29a5C7A34f11faA2;
+contract LiquidityContract{
 
-    constructor(address _token){
-        token = _token;
+   
+    address public constant UNISWAP_V2_ROUTER =
+        0x050E797f3625EC8785265e1d9BDd4799b97528A1;
+
+    address public constant UNISWAP_V2_FACTORY = 0x9fBFa493EC98694256D171171487B9D47D849Ba9;
+
+    error MustSendETH();
+    error MustSpecifyTokenAmount();
+
+    address public memeToken = 0x0a0E0FccC2c799845214E8E5583E44479EC02a23;
+    address public pair;
+    address public weth;
+    IUniswapV2Router public uniswapRouter;
+
+    constructor(address _token) {
+        // deploy the meme token
+        memeToken = _token;
+        uniswapRouter = IUniswapV2Router(UNISWAP_V2_ROUTER);
+
+        weth = uniswapRouter.WETH();
+
+        IERC20(memeToken).approve(UNISWAP_V2_ROUTER, type(uint256).max);
+
+        pair = IUniswapV2Factory(UNISWAP_V2_FACTORY).createPair(memeToken, weth);
     }
 
-    function createPool(uint24 fee) external returns (address pool) {
-        // Check if pool exists
-        pool = IUniswapV3Factory(uniswapV3Factory).getPool(token, WETH, fee);
-        require(pool == address(0), "Pool already exists");
+    // Swap ETH for Meme Token
+    function swapETHForMeme() external payable {
+        if (msg.value <= 0) revert MustSendETH();
 
-        // Create pool
-        pool = IUniswapV3Factory(uniswapV3Factory).createPool(token, WETH, fee);
-    }
+        address[] memory path;
+        path = new address[](2);
 
-    function addLiquidity(
-        uint256 tokenAmount,
-        uint256 ethAmount,
-        uint24 fee,
-        int24 tickLower,
-        int24 tickUpper
-    ) external payable {
-        require(msg.value == ethAmount, "ETH amount mismatch");
+        path[0] = weth; // ModeETH address
+        path[1] = memeToken; // Meme token address
 
-        // Approve tokens
-        IERC20(token).approve(positionManager, tokenAmount);
-
-        // Add liquidity
-        INonfungiblePositionManager(positionManager).mint{
-            value: ethAmount
-        }(
-            INonfungiblePositionManager.MintParams({
-                token0: token,
-                token1: WETH,
-                fee: fee,
-                tickLower: tickLower,
-                tickUpper: tickUpper,
-                amount0Desired: tokenAmount,
-                amount1Desired: ethAmount,
-                amount0Min: tokenAmount / 2, // Min token to avoid slippage
-                amount1Min: ethAmount / 2,   // Min ETH to avoid slippage
-                recipient: msg.sender,
-                deadline: block.timestamp + 1200
-            })
+        uniswapRouter.swapExactETHForTokens{value: msg.value}(
+            0,
+            path,
+            msg.sender, // Send Meme tokens to the user
+            block.timestamp + 360
         );
     }
+
+    function getTokenAddress() external view returns (address) {
+        return memeToken;
+    }
+
+    // Swap Meme Token for ETH
+    function swapMemeForETH(
+        uint256 amountIn
+    ) external {
+        if (amountIn <= 0) revert MustSpecifyTokenAmount();
+
+        address[] memory path;
+        path = new address[](2);
+
+        path[0] = memeToken; // Meme token address
+        path[1] = weth; // WETH address
+
+        // Transfer Meme tokens from user to this contract
+        IERC20(memeToken).transferFrom(msg.sender, address(this), amountIn);
+
+        // Perform the swap
+        uniswapRouter.swapExactTokensForETH(
+            amountIn,
+            0,
+            path,
+            msg.sender, // Send ETH to the user
+            block.timestamp + 360
+        );
+    }
+
+    // Add liquidity to the Meme Token and ETH pool
+    function addLiquidityETH(
+        uint256 amountTokenDesired
+    ) external payable {
+        if (msg.value <= 0) revert MustSendETH();
+
+        if (amountTokenDesired <= 0) revert MustSpecifyTokenAmount();
+
+        // Transfer Meme tokens from user to this contract
+        IERC20(memeToken).transferFrom(msg.sender, address(this), amountTokenDesired);
+
+        // Add liquidity
+        uniswapRouter.addLiquidityETH{value: msg.value}(
+            memeToken,
+            amountTokenDesired,
+            0,
+            0,
+            msg.sender, // LP tokens sent to the user
+            block.timestamp + 360
+        );
+    }
+
+    // Receive function to accept ETH
+    receive() external payable {}
+
+
+    /* error MustSendETH();
+    error MustSpecifyTokenAmount();
+    function AddLiquidity(uint256 amountTokenDesired) external payable {
+         if (msg.value <= 0) revert MustSendETH();
+
+        if (amountTokenDesired <= 0) revert MustSpecifyTokenAmount();
+
+        // Transfer Meme tokens from user to this contract
+        IERC20(memeToken).transferFrom(msg.sender, address(this), amountTokenDesired);
+
+        // Add liquidity
+        uniswapRouter.addLiquidityETH{value: msg.value}(
+            memeToken,
+            amountTokenDesired,
+            0,
+            0,
+            msg.sender, // LP tokens sent to the user
+            block.timestamp + 360
+        );
+    } */
 }
