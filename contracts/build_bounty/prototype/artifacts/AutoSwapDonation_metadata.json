@@ -30,6 +30,19 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "swapETHForToken",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "swapRouter",
 				"outputs": [
@@ -104,10 +117,10 @@
 			]
 		},
 		"contracts/build_bounty/prototype/auto_swap_build.sol": {
-			"keccak256": "0x098fca3eb4ebcd39e1f98b675ebf71b4e778cea2248019855448858db48cc4a5",
+			"keccak256": "0x2d9c42daac295c984bacd57d401cc5a4a921d90baa9b46fc9910bce88efb3c7c",
 			"urls": [
-				"bzz-raw://9477095d3622fb2bc49a33fbb3a9bedb170f66b1316c338a7d9f3727252739ed",
-				"dweb:/ipfs/Qmbn1NwDSBCn3hRPBXcjEaK7rAvWAPVkW6EUALE6A5hM3e"
+				"bzz-raw://b9bd1808b52f69b7f8d307c794f2f7d85b136703ed8e43958602aa04dd354a88",
+				"dweb:/ipfs/QmfMGQoBmmyafZs7iVbAjTZRt9jvLLer2a5j55jQrHZ7B2"
 			]
 		}
 	},

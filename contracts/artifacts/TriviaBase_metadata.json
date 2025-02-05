@@ -7,6 +7,11 @@
 		"abi": [
 			{
 				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
 				"name": "InsufficientContractBalance",
 				"type": "error"
 			},
@@ -76,7 +81,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/effct2.sol": "TriviaBase"
+			"contracts/effct3testnet.sol": "TriviaBase"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -106,12 +111,12 @@
 				"dweb:/ipfs/QmQ7iH2keLNUKgq2xSWcRmuBE5eZ3F5whYAkAGzCNNoEWB"
 			]
 		},
-		"contracts/effct2.sol": {
-			"keccak256": "0x2a16d2aa6f456d0bb06e50c3984a191f2fbab4f2e296507306660b3917c39a1b",
+		"contracts/effct3testnet.sol": {
+			"keccak256": "0xefea31a3fed4ec987c0df8518e519715bf122d755ee752dbb1fd288879a27825",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://b6ccb4e7d7fa4bbf0f5f8537eb067534f45e75667a46593c693bd48485ce4b4e",
-				"dweb:/ipfs/QmQd8bDs2M4A1NGNcSAsTMWfvoYJfbGfmZiJwq2gudSSZM"
+				"bzz-raw://d0552809e48844bc828cc6d75a359c84937b745b2daae2d7810b7074bdda5860",
+				"dweb:/ipfs/QmQX6X9HGwCnox7eUhFrcntzuDgp5Tpvk7LMvGSM5hUeDg"
 			]
 		}
 	},
