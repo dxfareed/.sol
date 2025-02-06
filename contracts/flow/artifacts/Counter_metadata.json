@@ -1,0 +1,78 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "TweakNum",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "AddCount",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "CallCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/flow/counter.sol": "Counter"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/flow/counter.sol": {
+			"keccak256": "0xbae2a0c01f57dc2b79693cd10700e43699986fbf0f5a2b37bcfb4c00f2fd6fff",
+			"urls": [
+				"bzz-raw://4529e05caa8f4caa5eccb56f06477132712cf2c540797b01f332eb0da047bbe0",
+				"dweb:/ipfs/QmdpzDZ1iT8ehWFAjxv3vgDfaNiQRn3Xnt3MPfjeH17CYz"
+			]
+		}
+	},
+	"version": 1
+}

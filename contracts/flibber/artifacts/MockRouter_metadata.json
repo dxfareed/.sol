@@ -1,0 +1,350 @@
+{
+	"compiler": {
+		"version": "0.8.28+commit.7893614a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "InsufficientFeeTokenAmount",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "InvalidMsgValue",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "RouterDisabled",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "destChainSelector",
+						"type": "uint64"
+					}
+				],
+				"name": "UnsupportedDestinationChain",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "",
+						"type": "uint64"
+					},
+					{
+						"components": [
+							{
+								"internalType": "bytes",
+								"name": "receiver",
+								"type": "bytes"
+							},
+							{
+								"internalType": "bytes",
+								"name": "data",
+								"type": "bytes"
+							},
+							{
+								"components": [
+									{
+										"internalType": "address",
+										"name": "token",
+										"type": "address"
+									},
+									{
+										"internalType": "uint256",
+										"name": "amount",
+										"type": "uint256"
+									}
+								],
+								"internalType": "struct Client.EVMTokenAmount[]",
+								"name": "tokenAmounts",
+								"type": "tuple[]"
+							},
+							{
+								"internalType": "address",
+								"name": "feeToken",
+								"type": "address"
+							},
+							{
+								"internalType": "bytes",
+								"name": "extraArgs",
+								"type": "bytes"
+							}
+						],
+						"internalType": "struct Client.EVM2AnyMessage",
+						"name": "message",
+						"type": "tuple"
+					}
+				],
+				"name": "ccipSend",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "",
+						"type": "uint64"
+					},
+					{
+						"components": [
+							{
+								"internalType": "bytes",
+								"name": "receiver",
+								"type": "bytes"
+							},
+							{
+								"internalType": "bytes",
+								"name": "data",
+								"type": "bytes"
+							},
+							{
+								"components": [
+									{
+										"internalType": "address",
+										"name": "token",
+										"type": "address"
+									},
+									{
+										"internalType": "uint256",
+										"name": "amount",
+										"type": "uint256"
+									}
+								],
+								"internalType": "struct Client.EVMTokenAmount[]",
+								"name": "tokenAmounts",
+								"type": "tuple[]"
+							},
+							{
+								"internalType": "address",
+								"name": "feeToken",
+								"type": "address"
+							},
+							{
+								"internalType": "bytes",
+								"name": "extraArgs",
+								"type": "bytes"
+							}
+						],
+						"internalType": "struct Client.EVM2AnyMessage",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"name": "getFee",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "messageId",
+						"type": "bytes32"
+					}
+				],
+				"name": "getSentMessage",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "bytes",
+								"name": "receiver",
+								"type": "bytes"
+							},
+							{
+								"internalType": "bytes",
+								"name": "data",
+								"type": "bytes"
+							},
+							{
+								"components": [
+									{
+										"internalType": "address",
+										"name": "token",
+										"type": "address"
+									},
+									{
+										"internalType": "uint256",
+										"name": "amount",
+										"type": "uint256"
+									}
+								],
+								"internalType": "struct Client.EVMTokenAmount[]",
+								"name": "tokenAmounts",
+								"type": "tuple[]"
+							},
+							{
+								"internalType": "address",
+								"name": "feeToken",
+								"type": "address"
+							},
+							{
+								"internalType": "bytes",
+								"name": "extraArgs",
+								"type": "bytes"
+							}
+						],
+						"internalType": "struct Client.EVM2AnyMessage",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "",
+						"type": "uint64"
+					}
+				],
+				"name": "isChainSupported",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "isEnabled",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"name": "sentMessages",
+				"outputs": [
+					{
+						"internalType": "bytes",
+						"name": "receiver",
+						"type": "bytes"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					},
+					{
+						"internalType": "address",
+						"name": "feeToken",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes",
+						"name": "extraArgs",
+						"type": "bytes"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "toggleRouter",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/flibber/router.sol": "MockRouter"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@chainlink/contracts/src/v0.8/ccip/interfaces/IRouterClient.sol": {
+			"keccak256": "0x1f1402f2a1735a827db4951b6bbb53eeb582ecfe03988e55eeb335858f346e67",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://af6c4c31359a64218a0c791fe6742123a7aa03f9486a575340d6897001dc348a",
+				"dweb:/ipfs/QmNRtVXYy8majEW7WUzUYV57FaGM68RDLnQFdjk7SHUYbu"
+			]
+		},
+		"@chainlink/contracts/src/v0.8/ccip/libraries/Client.sol": {
+			"keccak256": "0x052174af3c87abcbf5e7754f3d3aa9d0ff5054ecef0d9d01ef087c28a468bb0b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://21399eff44df1451cdd811be827f453a37c656f91fb139c33ba6d1aaffabb771",
+				"dweb:/ipfs/QmSMZ7pC7HURgUHUmFwEcJq7S5rRbjCEGn6YydbeyieM7E"
+			]
+		},
+		"contracts/flibber/router.sol": {
+			"keccak256": "0x9cd26fdd5abc8e3835260e65deca1e2e017420210e0240c6392b9f6d128ac879",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://200e97f3ce76a3bc429353e6f97088bc3013a8195e74d0241ffdbe877910f75d",
+				"dweb:/ipfs/QmdpSAQ3BSTUx7pMT3FwaQHcYBKMfuAtAouWy97k8Zgodm"
+			]
+		}
+	},
+	"version": 1
+}

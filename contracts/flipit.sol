@@ -7,7 +7,7 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contr
 contract flipit is ERC20 {
     address _owner_;
     //uint256 private constant dec = 1e18;
-    uint256 private constant DECIMALS = 10**18;
+    uint256 private constant DECIMALS = 10**6;
     address contractAddress;
     error NoToken(string);
     error TokenClaimed(string);
