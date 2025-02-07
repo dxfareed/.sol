@@ -58,6 +58,13 @@
 			},
 			{
 				"inputs": [],
+				"name": "FundContract",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "USDC_Balance",
 				"outputs": [
 					{
@@ -94,7 +101,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/admin.sol": "AdminBank"
+			"contracts/flow/admin.sol": "AdminBank"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -108,12 +115,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/admin.sol": {
-			"keccak256": "0xb6645ec94ce0fe2969e9732357db81624b1840a74ad397e6b71ec4f54a10a3a0",
+		"contracts/flow/admin.sol": {
+			"keccak256": "0xce01ab634c4bb02a25f1080ba7c8ae81c62e705795f4bfdbfbdca9ea31263990",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://85fd09ac1fffe986e7e1180654ba15eabf0eb64d1859a89b010d894c0891ac9a",
-				"dweb:/ipfs/QmP3493DA49ru7W22mrSkNNTGz9DXP4FXoMdfJcspN9WXv"
+				"bzz-raw://ca3bb09f42680ae0ee1047aa2e153dacbc022801f60944999e3e59415e0c0fd7",
+				"dweb:/ipfs/QmRdiGMEaNqQHn5dyCzpXZiduqKEVHWg4MzQY13NDnWoLY"
 			]
 		}
 	},

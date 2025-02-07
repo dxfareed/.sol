@@ -17,8 +17,8 @@ contract TriviaBase {
 
     constructor(){
         ADMIN = 0x70ca4a44A227645BB4815AE4d68098eA68aB926F;
-        MOCK_USDC = 0x1241676d45b1Cb5B573b6258C4A838e149A1D191;
-        BANK_ADMIN =  0x1160E90A81Da8EcF955Eb38565B2fc2d6F7D5C57;
+        MOCK_USDC = 0xe9E82211eAe28082ebD48bC80DCD534f176ecdAc;
+        BANK_ADMIN =  0xfd70Dd8B4A9D046be178A7DF9Dc9AFC25A855c9F;
         deployer = 0x52c043C7120d7DA35fFdDF6C5c2359d503ceE5F8;
     }
 
@@ -69,7 +69,7 @@ contract TriviaBase {
 import "@openzeppelin/contracts/proxy/Clones.sol";
 
 contract TriviaBaseFactory {
-    address private immutable TRIVIA = 0x5Cc2100E58CB12166081721E2D71239f6827D59D;
+    address private immutable TRIVIA = 0xcca2E78b0c4fC5a784eCA73d4A24aC47F8A86956;
 
     event EmitNewTriviaContract( address _TriviaBase );
 
