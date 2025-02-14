@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.28;
+pragma solidity >=0.8.0;
 
 import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
@@ -7,11 +7,15 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@chainlink/contracts/src/v0.8/ccip/interfaces/IRouterClient.sol";
 import "@chainlink/contracts/src/v0.8/ccip/libraries/Client.sol";
 import "@chainlink/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol";
-import "./flibberToken.sol";
+import "./fibtoken.sol";
 
 contract FIBSlottingMechanism is Ownable, ReentrancyGuard {
     IRouterClient private immutable i_router;
     IERC20 public immutable fibToken;
+
+    //router 0x2f16873EE9970059B60857946f0343a8F655111C
+    // 1000000000000000000
+    //fibtoken 0x132Ca3eff205D1f01A71e3D2E41B00056AF5c64E
     
     // Chainlink price feeds
     mapping(address => AggregatorV3Interface) public tokenPriceFeeds;
@@ -88,7 +92,7 @@ contract FIBSlottingMechanism is Ownable, ReentrancyGuard {
         
         emit SlotIn(msg.sender, token, amount);
     }
-
+    //000000000000000000
     function slotInETH() external payable nonReentrant {
         require(msg.value > 0, "Must send ETH");
         require(supportedTokens[address(0)], "ETH not supported");
