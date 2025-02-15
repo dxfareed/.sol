@@ -2,7 +2,7 @@
 pragma solidity >=0.8.0;
 
 import "@uniswap/v3-periphery/contracts/interfaces/ISwapRouter.sol";
-import "@openzeppelin/contracts/token/ERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 interface IWETH9 {
@@ -16,13 +16,13 @@ contract AutoSwapDonation is Ownable {
     ISwapRouter public immutable swapRouter;
     ERC20 public immutable token;
     address private constant WETH9 = 0x4200000000000000000000000000000000000006;
-    uint24 public immutable swapFee;
+    uint24 public swapFee;
 
     event DonationReceived(address indexed donor, uint256 ethAmount);
     event SwapExecuted(uint256 amountIn, uint256 amountOut);
     event Withdraw(address indexed to, address indexed token, uint256 amount);
 
-    constructor(address _token, address _swapRouter, uint24 _swapFee) {
+    constructor(address _token, address _swapRouter, uint24 _swapFee)Ownable(msg.sender) {
         swapRouter = ISwapRouter(_swapRouter);
         token = ERC20(_token);
         swapFee = _swapFee;
