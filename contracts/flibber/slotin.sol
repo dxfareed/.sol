@@ -7,7 +7,7 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@chainlink/contracts/src/v0.8/ccip/interfaces/IRouterClient.sol";
 import "@chainlink/contracts/src/v0.8/ccip/libraries/Client.sol";
 import "@chainlink/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol";
-import "./fibtoken.sol";
+import "./flibberToken.sol";
 
 contract FIBSlottingMechanism is Ownable, ReentrancyGuard {
     IRouterClient private immutable i_router;
@@ -45,6 +45,16 @@ contract FIBSlottingMechanism is Ownable, ReentrancyGuard {
     event MessageSent(bytes32 indexed messageId);
     event BridgeFeeUpdated(uint256 newFee);
     event ChainGasLimitUpdated(uint64 chainSelector, uint256 gasLimit);
+    
+
+     // Custom Errors (Define these outside the function, at the contract level)
+    error InsufficientSlottedBalance(uint256 available, uint256 requested);
+    error InsufficientFIBBalance(uint256 available, uint256 required);
+    error CCIPFeeRetrievalFailed();
+    error CCIPSendFailed(bytes reason);
+    error FIBTransferFailed(bytes reason);
+
+    event Error(string message); // Generic error event for other issues
 
     constructor(
         address _router,
@@ -59,9 +69,11 @@ contract FIBSlottingMechanism is Ownable, ReentrancyGuard {
         bridgeFeeInFIB = _initialBridgeFee;
         
         // Add initial supported chains gas limits
-        chainGasLimits[16015286601757825753] = 200000; // Sepolia
-        chainGasLimits[12532609583862916517] = 200000; // Mumbai
-        chainGasLimits[14767482510784806043] = 200000; // Fuji
+        chainGasLimits[16015286601757825753] = 200000; // Sepolia Testnet
+        chainGasLimits[12532609583862916517] = 200000; // Mumbai Testnet
+        chainGasLimits[14767482510784806043] = 200000; // Fuji Testnet
+        chainGasLimits[17353537149048926717] = 200000; // Arbitrum Sepolia Testnet
+        chainGasLimits[13797821791088691572] = 200000; // Base Goerli Testnet
     }
 
     function addSupportedToken(
@@ -102,7 +114,23 @@ contract FIBSlottingMechanism is Ownable, ReentrancyGuard {
         emit SlotIn(msg.sender, address(0), msg.value);
     }
 
-    function slotOut(
+     event SlotOutDebug(
+        address indexed user,
+        address indexed token,
+        uint256 amount,
+        uint64 destinationChain,
+        uint256 fibFeesPaid,
+        uint256 userTokenBalanceBefore,
+        uint256 userTokenBalanceAfter,
+        uint256 fibBalanceBefore,
+        uint256 fibBalanceAfter,
+        uint256 usdValue,
+        bool fibTransferSuccess,
+        uint256 ccipFee,
+        bool ccipSendSuccess
+    );
+
+   function slotOut(
         address token,
         uint256 amount,
         uint64 destinationChainSelector,
@@ -111,52 +139,54 @@ contract FIBSlottingMechanism is Ownable, ReentrancyGuard {
         require(supportedTokens[token], "Token not supported");
         require(amount > 0, "Amount must be greater than 0");
         require(chainGasLimits[destinationChainSelector] > 0, "Chain not supported");
-        require(
-            userTokenBalances[token][msg.sender] >= amount,
-            "Insufficient balance"
-        );
-        require(
-            fibToken.balanceOf(msg.sender) >= bridgeFeeInFIB,
-            "Insufficient FIB balance for fee"
-        );
 
-        // Calculate USD value
+        if (userTokenBalances[token][msg.sender] < amount) {
+            revert InsufficientSlottedBalance(userTokenBalances[token][msg.sender], amount);
+        }
+
+        if (fibToken.balanceOf(msg.sender) < bridgeFeeInFIB) {
+            revert InsufficientFIBBalance(fibToken.balanceOf(msg.sender), bridgeFeeInFIB);
+        }
+
         uint256 usdValue = getTokenValueInUSD(token, amount);
-        
-        // Deduct balance before external calls
-        userTokenBalances[token][msg.sender] -= amount;
-        
-        // Transfer FIB tokens for bridge fee
-        require(
-            fibToken.transferFrom(msg.sender, address(this), bridgeFeeInFIB),
-            "FIB fee transfer failed"
-        );
 
-        // Prepare CCIP message
+        userTokenBalances[token][msg.sender] -= amount;
+
+        bool success = IERC20(fibToken).transferFrom(msg.sender, address(this), bridgeFeeInFIB);
+        if (!success) {
+            emit Error("FIB transfer failed");
+            revert FIBTransferFailed("FIB transfer failed");
+        }
+
         Client.EVM2AnyMessage memory message = Client.EVM2AnyMessage({
             receiver: abi.encode(receiver),
             data: abi.encode(token, amount, usdValue),
             tokenAmounts: new Client.EVMTokenAmount[](0),
-            extraArgs: "",  // Changed to empty string as default
+            extraArgs: "",
             feeToken: address(0)
         });
 
-        // Get CCIP fee
-        uint256 ccipFee = i_router.getFee(destinationChainSelector, message);
-        
-        // Send CCIP message
-        bytes32 messageId = i_router.ccipSend{value: ccipFee}(
-            destinationChainSelector,
-            message
-        );
+        uint256 ccipFee;
+        bytes memory reason;
 
-        emit SlotOut(
-            msg.sender,
-            token,
-            amount,
-            destinationChainSelector,
-            bridgeFeeInFIB
-        );
+        (success, reason) = address(i_router).call(abi.encodeWithSignature("getFee(uint64,bytes)", destinationChainSelector, message));
+        if (!success) {
+            emit Error(string(reason));
+            revert CCIPFeeRetrievalFailed();
+        }
+
+        ccipFee = abi.decode(reason, (uint256));
+
+        (success, reason) = address(i_router).call{value: ccipFee}(abi.encodeWithSignature("ccipSend(uint64,bytes)", destinationChainSelector, message));
+
+        if (!success) {
+            emit Error(string(reason));
+            revert CCIPSendFailed(reason); // No conversion needed, reason is already bytes
+        }
+
+        bytes32 messageId = abi.decode(reason, (bytes32));
+
+        emit SlotOut(msg.sender, token, amount, destinationChainSelector, bridgeFeeInFIB);
         emit MessageSent(messageId);
     }
 

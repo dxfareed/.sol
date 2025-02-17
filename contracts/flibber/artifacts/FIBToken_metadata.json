@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.28+commit.7893614a"
+		"version": "0.8.26+commit.8a97fa7a"
 	},
 	"language": "Solidity",
 	"output": {
@@ -902,11 +902,11 @@
 			]
 		},
 		"contracts/flibber/flibberToken.sol": {
-			"keccak256": "0x2a503087a86669d614e521e91caa735faca54492c7831b952c8b33d1129c7ebd",
+			"keccak256": "0x71f7e3bb5fb8776c020847ddcf7e72f7872ec7d89b4e3b2c7f41d71a502c8c3c",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://baf6e9635650a11691410fabde9901d7cf8435b332c4d598a93d86404ebe8743",
-				"dweb:/ipfs/Qma6QH781FxMCJ8tzn49F3tQbbx6zRyrvpDohbDg7CxN6p"
+				"bzz-raw://22f225496f2bf71a1eaf2f771154248429f219cf69431be59c716dc36974f5aa",
+				"dweb:/ipfs/QmP8eBZZpdEUHowkMsNmSYXNhVvzbNCuzfLnwuXZXCDiW4"
 			]
 		}
 	},

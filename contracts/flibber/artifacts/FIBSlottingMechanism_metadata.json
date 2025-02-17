@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.28+commit.7893614a"
+		"version": "0.8.26+commit.8a97fa7a"
 	},
 	"language": "Solidity",
 	"output": {
@@ -25,6 +25,65 @@
 				],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "CCIPFeeRetrievalFailed",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes",
+						"name": "reason",
+						"type": "bytes"
+					}
+				],
+				"name": "CCIPSendFailed",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes",
+						"name": "reason",
+						"type": "bytes"
+					}
+				],
+				"name": "FIBTransferFailed",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "available",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "required",
+						"type": "uint256"
+					}
+				],
+				"name": "InsufficientFIBBalance",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "available",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "requested",
+						"type": "uint256"
+					}
+				],
+				"name": "InsufficientSlottedBalance",
+				"type": "error"
 			},
 			{
 				"inputs": [
@@ -83,6 +142,19 @@
 					}
 				],
 				"name": "ChainGasLimitUpdated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "message",
+						"type": "string"
+					}
+				],
+				"name": "Error",
 				"type": "event"
 			},
 			{
@@ -625,19 +697,19 @@
 			]
 		},
 		"contracts/flibber/flibberToken.sol": {
-			"keccak256": "0x2a503087a86669d614e521e91caa735faca54492c7831b952c8b33d1129c7ebd",
+			"keccak256": "0x71f7e3bb5fb8776c020847ddcf7e72f7872ec7d89b4e3b2c7f41d71a502c8c3c",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://baf6e9635650a11691410fabde9901d7cf8435b332c4d598a93d86404ebe8743",
-				"dweb:/ipfs/Qma6QH781FxMCJ8tzn49F3tQbbx6zRyrvpDohbDg7CxN6p"
+				"bzz-raw://22f225496f2bf71a1eaf2f771154248429f219cf69431be59c716dc36974f5aa",
+				"dweb:/ipfs/QmP8eBZZpdEUHowkMsNmSYXNhVvzbNCuzfLnwuXZXCDiW4"
 			]
 		},
 		"contracts/flibber/slotin.sol": {
-			"keccak256": "0x6b117e486754ac3dc22a14c0ca341ad9ad30a333651ce1e949507e66e31e62e5",
+			"keccak256": "0xbebc62f9ee023d121d60bd490b7ecea019409044554f692ebd21bcc5ce27b539",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://4ca898d03dcfcfc30b4a8946e1ef9d7a990e51e04c287ce780e04da55794e751",
-				"dweb:/ipfs/QmdaMVtG6TSpGWJNfZWG2hfbLGKvG8tzTgP2YJWRvVfUtd"
+				"bzz-raw://d145db103413082a19c026d5e6cefddb62d15da07422282f041718245cb59b42",
+				"dweb:/ipfs/QmSvYiHnZ5TDFeXWM3E7T1LXQebpue41Jc6fDkahWrPdGk"
 			]
 		}
 	},
