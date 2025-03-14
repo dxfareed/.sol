@@ -69,11 +69,13 @@ contract FIBSlottingMechanism is Ownable, ReentrancyGuard {
         bridgeFeeInFIB = _initialBridgeFee;
         
         // Add initial supported chains gas limits
-        chainGasLimits[16015286601757825753] = 200000; // Sepolia Testnet
-        chainGasLimits[12532609583862916517] = 200000; // Mumbai Testnet
-        chainGasLimits[14767482510784806043] = 200000; // Fuji Testnet
-        chainGasLimits[17353537149048926717] = 200000; // Arbitrum Sepolia Testnet
-        chainGasLimits[13797821791088691572] = 200000; // Base Goerli Testnet
+        // Add initial supported chains gas limits
+    chainGasLimits[16015286601757825753] = 200000; // Sepolia Testnet
+    chainGasLimits[12532609583862916517] = 200000; // Mumbai Testnet
+    chainGasLimits[14767482510784806043] = 200000; // Fuji Testnet
+    chainGasLimits[17353537149048926717] = 200000; // Arbitrum Sepolia Testnet
+    chainGasLimits[13797821791088691572] = 200000; // Base Goerli Testnet
+    chainGasLimits[1733399882958865391] = 200000; // Base Sepolia Testnet
     }
 
     function addSupportedToken(
@@ -131,64 +133,70 @@ contract FIBSlottingMechanism is Ownable, ReentrancyGuard {
     );
 
    function slotOut(
-        address token,
-        uint256 amount,
-        uint64 destinationChainSelector,
-        address receiver
-    ) external nonReentrant {
-        require(supportedTokens[token], "Token not supported");
-        require(amount > 0, "Amount must be greater than 0");
-        require(chainGasLimits[destinationChainSelector] > 0, "Chain not supported");
+    address token,
+    uint256 amount,
+    uint64 destinationChainSelector,
+    address receiver
+) external nonReentrant {
+    require(supportedTokens[token], "Token not supported");
+    require(amount > 0, "Amount must be greater than 0");
+    require(chainGasLimits[destinationChainSelector] > 0, "Chain not supported");
 
-        if (userTokenBalances[token][msg.sender] < amount) {
-            revert InsufficientSlottedBalance(userTokenBalances[token][msg.sender], amount);
-        }
-
-        if (fibToken.balanceOf(msg.sender) < bridgeFeeInFIB) {
-            revert InsufficientFIBBalance(fibToken.balanceOf(msg.sender), bridgeFeeInFIB);
-        }
-
-        uint256 usdValue = getTokenValueInUSD(token, amount);
-
-        userTokenBalances[token][msg.sender] -= amount;
-
-        bool success = IERC20(fibToken).transferFrom(msg.sender, address(this), bridgeFeeInFIB);
-        if (!success) {
-            emit Error("FIB transfer failed");
-            revert FIBTransferFailed("FIB transfer failed");
-        }
-
-        Client.EVM2AnyMessage memory message = Client.EVM2AnyMessage({
-            receiver: abi.encode(receiver),
-            data: abi.encode(token, amount, usdValue),
-            tokenAmounts: new Client.EVMTokenAmount[](0),
-            extraArgs: "",
-            feeToken: address(0)
-        });
-
-        uint256 ccipFee;
-        bytes memory reason;
-
-        (success, reason) = address(i_router).call(abi.encodeWithSignature("getFee(uint64,bytes)", destinationChainSelector, message));
-        if (!success) {
-            emit Error(string(reason));
-            revert CCIPFeeRetrievalFailed();
-        }
-
-        ccipFee = abi.decode(reason, (uint256));
-
-        (success, reason) = address(i_router).call{value: ccipFee}(abi.encodeWithSignature("ccipSend(uint64,bytes)", destinationChainSelector, message));
-
-        if (!success) {
-            emit Error(string(reason));
-            revert CCIPSendFailed(reason); // No conversion needed, reason is already bytes
-        }
-
-        bytes32 messageId = abi.decode(reason, (bytes32));
-
-        emit SlotOut(msg.sender, token, amount, destinationChainSelector, bridgeFeeInFIB);
-        emit MessageSent(messageId);
+    if (userTokenBalances[token][msg.sender] < amount) {
+        revert InsufficientSlottedBalance(userTokenBalances[token][msg.sender], amount);
     }
+
+    if (address(this).balance < bridgeFeeInFIB) {
+        revert InsufficientFIBBalance(fibToken.balanceOf(msg.sender), bridgeFeeInFIB);
+    }
+
+
+    uint256 usdValue = getTokenValueInUSD(token, amount);
+    userTokenBalances[token][msg.sender] -= amount;
+
+    bool fibTransferSuccess = fibToken.transferFrom(msg.sender, address(this), bridgeFeeInFIB);
+    if (!fibTransferSuccess) {
+        emit Error("FIB transfer failed");
+        revert FIBTransferFailed("FIB transfer failed");
+    }
+
+    Client.EVM2AnyMessage memory message = Client.EVM2AnyMessage({
+        receiver: abi.encode(receiver),
+        data: abi.encode(token, amount, usdValue),
+        tokenAmounts: new Client.EVMTokenAmount[](0),
+        extraArgs: "",
+        feeToken: address(0)
+    });
+
+    uint256 ccipFee;
+    bool success;
+    bytes memory reason;
+
+    // Retrieve the CCIP fee from the router
+    (success, reason) = address(i_router).call{value: ccipFee}(abi.encodeWithSignature("ccipSend(uint64,bytes)", destinationChainSelector, message));
+    if (!success) {
+        emit Error(string(reason));
+        revert CCIPFeeRetrievalFailed();
+    }
+    ccipFee = abi.decode(reason, (uint256));
+
+    // Check that the contract has enough ETH to cover the CCIP fee
+    require(address(this).balance >= ccipFee, "Contract underfunded for CCIP fee");
+
+    // Use the contract's ETH balance to pay the CCIP fee
+    (success, reason) = address(i_router).call{value: ccipFee}(
+        abi.encodeWithSignature("ccipSend(uint64,bytes)", destinationChainSelector, message)
+    );
+    if (!success) {
+        emit Error(string(reason));
+        revert CCIPSendFailed(reason);
+    }
+    bytes32 messageId = abi.decode(reason, (bytes32));
+
+    emit SlotOut(msg.sender, token, amount, destinationChainSelector, bridgeFeeInFIB);
+    emit MessageSent(messageId);
+}
+
 
     function getTokenValueInUSD(
         address token,

@@ -6,7 +6,6 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contr
 
 contract flipit is ERC20 {
     address _owner_;
-    //uint256 private constant dec = 1e18;
     uint256 private constant DECIMALS = 10**6;
     address contractAddress;
     error NoToken(string);
@@ -18,7 +17,7 @@ contract flipit is ERC20 {
     {
        // 10,000,000,000
         //_mint(msg.sender, 1000000 * dec);
-        _mint(address(this), 10_000_000_000_000 * DECIMALS);
+        _mint(msg.sender, 10_000_000_000 * DECIMALS);
         _owner_ = msg.sender;
         contractAddress = address(this);
 
@@ -76,6 +75,11 @@ contract flipit is ERC20 {
         require(_owner_ == msg.sender, "Not owner!");
         return _senderEth;
     }
+
+    function decimals() public pure override  returns (uint8) {
+        return 6;
+    }
+
     function withDraw() public {
         require(_owner_ == msg.sender, "Not owner!");
         payable (_owner_).transfer(address(this).balance);

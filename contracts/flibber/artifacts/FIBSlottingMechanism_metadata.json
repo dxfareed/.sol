@@ -257,6 +257,91 @@
 					{
 						"indexed": true,
 						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint64",
+						"name": "destinationChain",
+						"type": "uint64"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "fibFeesPaid",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "userTokenBalanceBefore",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "userTokenBalanceAfter",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "fibBalanceBefore",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "fibBalanceAfter",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "usdValue",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "fibTransferSuccess",
+						"type": "bool"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "ccipFee",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "ccipSendSuccess",
+						"type": "bool"
+					}
+				],
+				"name": "SlotOutDebug",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
 						"name": "token",
 						"type": "address"
 					},
@@ -705,11 +790,11 @@
 			]
 		},
 		"contracts/flibber/slotin.sol": {
-			"keccak256": "0xbebc62f9ee023d121d60bd490b7ecea019409044554f692ebd21bcc5ce27b539",
+			"keccak256": "0x2b6736bb69c243f5fcd5671b162bf8667b5705c114ca9e16db66e5c96b5859b0",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://d145db103413082a19c026d5e6cefddb62d15da07422282f041718245cb59b42",
-				"dweb:/ipfs/QmSvYiHnZ5TDFeXWM3E7T1LXQebpue41Jc6fDkahWrPdGk"
+				"bzz-raw://9f0e9899db1bac7610b118152bf7c1e05aa650eef0271259620a7d0ff52fb770",
+				"dweb:/ipfs/QmbE4aHvasnJBzs1JGkThNmyzxrFfnhVTCt1BX77h2FWtY"
 			]
 		}
 	},

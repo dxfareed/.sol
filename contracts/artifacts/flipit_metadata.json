@@ -349,7 +349,7 @@
 						"type": "uint8"
 					}
 				],
-				"stateMutability": "view",
+				"stateMutability": "pure",
 				"type": "function"
 			},
 			{
@@ -658,11 +658,11 @@
 	},
 	"sources": {
 		"contracts/flipit.sol": {
-			"keccak256": "0xbe1e35aab8f3a7ac7ba67f69e31f143dde22d659744172ded8b28c9f0c0ea4fe",
+			"keccak256": "0x7b68bd7176122f194aaf28336af0235f623898350e98e28d4b5b29c63a2e2578",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://6310f062d9b698fe5d32486ef52d48e1948f462e67b0ae05fbc3292ca6a43735",
-				"dweb:/ipfs/QmWzzBZjpxvR8nX58anzJ9jrY856kkpfu1E32EVPtMeTdD"
+				"bzz-raw://6eab950d74ba13fcf29bff97e5ff2274d05d5a8356def502f763373bf13e0c9f",
+				"dweb:/ipfs/QmXf7VVF93TURQ81M5uCYbHNddxAAN5XvfDkn2G1Fy6P6x"
 			]
 		},
 		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/interfaces/draft-IERC6093.sol": {
@@ -674,11 +674,11 @@
 			]
 		},
 		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol": {
-			"keccak256": "0x970109a2c0e9576559d23ca61e5a7d948976fdfa5d708908b66d138ecff417eb",
+			"keccak256": "0xfca1f9b8e1962605d626b28e1a1eda78a98a097bd09923dadb4050678bba5586",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://9f2adff2280da70ce36727c831704c957d3529dc53e13250a4b85592c84d5c5e",
-				"dweb:/ipfs/QmXwcamNAZkVctXKXnLkfcoVzCsuhyznV52xZFY5uNNgkM"
+				"bzz-raw://756a6c3b87b9296655a5cf3e8981b8ed16f5da2748af8fb6b02f3979702e3bb4",
+				"dweb:/ipfs/Qmc9MAsy1bCVSNfUKyrFukLTS8h8RDo7Cs1Km8A2zuWtMW"
 			]
 		},
 		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/IERC20.sol": {

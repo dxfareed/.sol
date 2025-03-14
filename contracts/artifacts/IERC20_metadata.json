@@ -91,7 +91,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/admin.sol": "IERC20"
+			"contracts/effct3testnet.sol": "IERC20"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -105,12 +105,36 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/admin.sol": {
-			"keccak256": "0xb6645ec94ce0fe2969e9732357db81624b1840a74ad397e6b71ec4f54a10a3a0",
+		"@openzeppelin/contracts/proxy/Clones.sol": {
+			"keccak256": "0x83b10b9c4f3117f1bff30c49bc486d719de88c8425fe646bc8a5f998ee44ceb9",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://85fd09ac1fffe986e7e1180654ba15eabf0eb64d1859a89b010d894c0891ac9a",
-				"dweb:/ipfs/QmP3493DA49ru7W22mrSkNNTGz9DXP4FXoMdfJcspN9WXv"
+				"bzz-raw://ef2774d5513d7567c3e886a875d90261e1173876324e88e5f21ce79cad14e188",
+				"dweb:/ipfs/QmRDkvYwjyHCyTahZ5BqaRz64VtxSzGiYTLmDkacC5yEqr"
+			]
+		},
+		"@openzeppelin/contracts/utils/Create2.sol": {
+			"keccak256": "0xbb7e8401583d26268ea9103013bcdcd90866a7718bd91105ebd21c9bf11f4f06",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://866a11ad89c93ee918078f7a46ae31e17d89216ce64603f0d34be7ed0a5c520e",
+				"dweb:/ipfs/QmW3ckLEJg2v2NzuVLNJFmRuerGSipw6Dzg6ntbmqbAGoC"
+			]
+		},
+		"@openzeppelin/contracts/utils/Errors.sol": {
+			"keccak256": "0x6afa713bfd42cf0f7656efa91201007ac465e42049d7de1d50753a373648c123",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ba1d02f4847670a1b83dec9f7d37f0b0418d6043447b69f3a29a5f9efc547fcf",
+				"dweb:/ipfs/QmQ7iH2keLNUKgq2xSWcRmuBE5eZ3F5whYAkAGzCNNoEWB"
+			]
+		},
+		"contracts/effct3testnet.sol": {
+			"keccak256": "0x438855fac5755d1ed0ff5b802e974e685ccbd86baa205164207b038ca345f63f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5196f2b7f23ea63eaca90e60c62f886fd96fac50e4e76d2288f26b1f61125da9",
+				"dweb:/ipfs/QmSVpNh7KgYsarAAejTrKcPZtXdQwNh4k53xP8w7rUjJNk"
 			]
 		}
 	},
