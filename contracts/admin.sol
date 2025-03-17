@@ -18,7 +18,7 @@ contract AdminBank{
     
     constructor(){
         admin = 0x70ca4a44A227645BB4815AE4d68098eA68aB926F;
-        MOCK_USDC = 0x7de39BE56Ac1a669840B1273c068Ea7d07933c8A;
+        MOCK_USDC = 0x1241676d45b1Cb5B573b6258C4A838e149A1D191;
     }
 
     function USDC_Transfer() external onlyAdmin{
