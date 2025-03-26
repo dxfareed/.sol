@@ -72,6 +72,11 @@
           "internalType": "address",
           "name": "_addrs",
           "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
         }
       ],
       "name": "Claim",
@@ -174,11 +179,11 @@
         },
         {
           "internalType": "uint256",
-          "name": "_tokenStaked",
+          "name": "_amount",
           "type": "uint256"
         }
       ],
-      "name": "gain",
+      "name": "flipClick",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -193,6 +198,19 @@
       ],
       "name": "NoToken",
       "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_pumpMint",
+          "type": "uint256"
+        }
+      ],
+      "name": "pumptit",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
     },
     {
       "inputs": [
@@ -239,11 +257,11 @@
         },
         {
           "internalType": "uint256",
-          "name": "_amount",
+          "name": "_tokenStaked",
           "type": "uint256"
         }
       ],
-      "name": "flipClick",
+      "name": "gain",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -253,19 +271,6 @@
       "name": "payContractGasFee",
       "outputs": [],
       "stateMutability": "payable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "_pumpMint",
-          "type": "uint256"
-        }
-      ],
-      "name": "pumptit",
-      "outputs": [],
-      "stateMutability": "nonpayable",
       "type": "function"
     },
     {
@@ -449,6 +454,19 @@
     },
     {
       "inputs": [],
+      "name": "decimalsz",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [],
       "name": "name",
       "outputs": [
         {
@@ -519,6 +537,6 @@
       "type": "function"
     }
   ],
-  "filePath": ".sol/contracts/flipit.sol",
-  "pinnedAt": 1736363295327
+  "filePath": "-1739575694671/contracts/flipit.sol",
+  "pinnedAt": 1742945887009
 }
