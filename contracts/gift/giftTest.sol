@@ -9,25 +9,37 @@ interface IERC20 {
 }
 
 contract Gift{
-    address private immutable admin = 0x52c043C7120d7DA35fFdDF6C5c2359d503ceE5F8;
-    address private immutable token = 0x1241676d45b1Cb5B573b6258C4A838e149A1D191;
+    address private immutable ADMIN = 0x52c043C7120d7DA35fFdDF6C5c2359d503ceE5F8;
+    address private immutable TOKEN = 0x072BA244Cf0DE5984dEB40030Aef86d7661303dC;
 
     mapping (address => uint256) userAllocation;
 
-    000000
+    error TransactionError(string);
+    error InsufficientBalance(string);
+
     //@approve then.. 
-    function UserDeposit(uint256 _amount) external returns(bool){
-       bool success = IERC20(token).transferFrom(msg.sender, address(this), _amount);
-       if (success){
+    function UserDeposit(uint256 _amount) external returns(bool _success){
+        _success = IERC20(TOKEN).transferFrom(msg.sender, address(this), _amount);
+       if (_success){
             userAllocation[msg.sender] += _amount;
-            return success;
+            return _success;
+       }
+       else {
+        revert TransactionError("Transaction Error");
        }
     }
 
-    //admin call this function only
-    function ClaimReward(uint256 _amount,address _sender,address _reciever)  external onlyAdmin returns (bool){
-        require( userAllocation[_sender] <= _amount, "Insufficient Below" );
-        bool _success = IERC20(token).transfer(_reciever, _amount);
+    //ADMIN call this function only
+    // @ onlyAdmin modifier
+    function ClaimReward(uint256 _amount,address _sender,address _reciever)  external onlyAdmin returns (bool _success){
+        
+        // @ require too many gas. fucking pun hahhah
+        //require( userAllocation[_sender] <= _amount, "Insufficient Below" );
+
+        if( _amount > userAllocation[_sender] ){
+            revert InsufficientBalance("Insufficient Balance");
+        }
+        _success = IERC20(TOKEN).transfer(_reciever, _amount);
 
         if(_success){
             userAllocation[_sender] -= _amount;
@@ -39,13 +51,14 @@ contract Gift{
         return userAllocation[_caller];
     }
 
+    //contract balance
     function plusOneBalance() external view returns(uint256){
-        uint256 bal = IERC20(token).balanceOf(address(this));
+        uint256 bal = IERC20(TOKEN).balanceOf(address(this));
         return bal;
     }
 
     modifier onlyAdmin(){
-        require(msg.sender == admin, "Only admin can call this function");
+        require(msg.sender == ADMIN, "Only ADMIN can call this function");
         _;
     }
 }
